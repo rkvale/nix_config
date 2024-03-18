@@ -17,7 +17,7 @@
     userName  = "rhkvale";
     userEmail = "rune@kvale.io";
   };
-
+  #testing
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
@@ -34,10 +34,12 @@
   home.packages = [
     pkgs.hyprlock
     pkgs.hypridle
+    pkgs.hyprpaper
     #pkgs.flameshot
     pkgs.nh
     pkgs.grim
     pkgs.slurp
+    pkgs.obsidian
     pkgs.swappy
     pkgs.hyprshot
     pkgs.openfortivpn
