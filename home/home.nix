@@ -34,7 +34,7 @@
   home.packages = [
     pkgs.hyprlock
     pkgs.hypridle
-    pkgs.hyprpaper
+    #pkgs.hyprpaper
     #pkgs.flameshot
     pkgs.nh
     pkgs.grim
