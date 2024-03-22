@@ -8,11 +8,11 @@
 
     #Hyprland
     # Do not override nixpkgs input as Hyprland has its own binary cache.
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-split-monitor-workspaces = {
-      url = "github:Duckonaut/split-monitor-workspaces";
-      inputs.hyprland.follows = "hyprland";
-    };
+    hyprland.url = "github:hyprwm/Hyprland/v0.37.1";
+#    hyprland-split-monitor-workspaces = {
+#      url = "github:Duckonaut/split-monitor-workspaces";
+#      inputs.hyprland.follows = "hyprland";
+#    };
   };
 
   outputs = inputs @ {self, hyprland, nixpkgs, home-manager, ...}: {
