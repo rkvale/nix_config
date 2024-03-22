@@ -55,12 +55,6 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-#    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
- #   plugins =
- #     if osConfig.networking.hostName == "saturn"
- #     then [inputs.hyprland-split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces]
- #     else [];
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
-
-
 }
