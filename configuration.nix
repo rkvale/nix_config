@@ -98,12 +98,7 @@
 #    package = pkgs.waybar;
 #  };
  
-#  programs.hyprland = {
-#    # Install the packages from nixpkgs
-#    enable = true;
-#    # Whether to enable XWayland
-#    xwayland.enable = true;
-#  };
+  programs.hyprland.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.runek = {
@@ -121,7 +116,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     firefox
     #alacritty
     #hyprland
@@ -139,6 +133,13 @@
     fonts.packages = with pkgs; [
       (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" "Iosevka"]; })
    ];
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

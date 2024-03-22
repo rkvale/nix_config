@@ -12,6 +12,9 @@
   home.username = "runek";
   home.homeDirectory = "/home/runek";
 
+  programs.bash.enable = true;
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
+
   programs.git = {
     enable = true;
     userName  = "rhkvale";
