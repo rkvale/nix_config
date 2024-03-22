@@ -4,7 +4,7 @@
       #"swaybg -i ~/.wallpaper"
       "${pkgs.hyprpaper}/bin/hyprpaper"
       "${pkgs.mako}/bin/mako"
-      "${pkgs.waybar}/bin/waybar"
+      "waybar"
     ];
     master = {
       new_is_master = true;

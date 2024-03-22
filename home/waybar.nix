@@ -12,9 +12,8 @@
     }
     + /themes/mocha.css;
 in {
-  home.packages = [pkgs.waybar];
-
   programs.waybar.enable = true;
+  programs.waybar.package = pkgs.waybar.override {wireplumberSupport = false;};
   programs.waybar.settings.mainBar = {
     layer = "top";
     # Layout
