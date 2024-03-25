@@ -55,6 +55,7 @@
     pkgs.postman
     pkgs.signal-desktop
     pkgs.element-desktop
+    pkgs.swaybg
     #pkgs.virt-manager
     #pkgs.citrix_workspace
     #pkgs.cups

@@ -1,8 +1,8 @@
 {pkgs, osConfig, ...}: {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      #"swaybg -i ~/.wallpaper"
-      "${pkgs.hyprpaper}/bin/hyprpaper"
+      "swaybg -i ~/.wallpaper/wallpaper02.png"
+      #"${pkgs.hyprpaper}/bin/hyprpaper"
       "${pkgs.mako}/bin/mako"
       "waybar"
     ];
