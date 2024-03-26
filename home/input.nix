@@ -43,7 +43,8 @@ in {
     "$terminalcmd" = "alacritty";
     #"$runnercmd" = ''hyprctl dispatch exec "$(tofi-drun --width 40% --height 30%)"'';
     "$runnercmd" = ''hyprctl dispatch exec "$(wofi --show drun --width 40% --height 30%)"'';
-    "$scrotcmd" = ''grim -g "$(slurp -d)" - | wl-copy --type image/png'';
+    #"$scrotcmd" = ''grim -g "$(slurp -d)" - | wl-copy --type image/png'';
+    "$scrotcmd" = ''slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')'';
     "$lockcmd" = "hyprlock";
     "$dismisscmd" = "makoctl dismiss -a";
 

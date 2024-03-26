@@ -28,13 +28,16 @@
   #
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
-  # changes in each release.
+  # changes in each release.catppuccin-cursors
   home.stateVersion = "23.11";
 
   home.pointerCursor = {
     gtk.enable = true;
+    #package = pkgs.catppuccin-cursors.mochaMauve;
+    #name = "MochaMauve";
     package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
+    name = "Bibata-Modern-Amber";
+    #name = "Bibata-Modern-Classic";
     size = 16;
   };
 
