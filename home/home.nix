@@ -31,6 +31,15 @@
   # changes in each release.
   home.stateVersion = "23.11";
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 16;
+  };
+
+
+
   # Let Home Manager install and manage itself.
   #programs.home-manager.enable = true;
   
