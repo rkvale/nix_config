@@ -71,7 +71,7 @@
     pkgs.slurp
     pkgs.obsidian
     pkgs.swappy
-    pkgs.hyprshot
+    #pkgs.hyprshot
     pkgs.openfortivpn
     pkgs.dnsutils
     pkgs.unzip
@@ -83,6 +83,11 @@
     pkgs.signal-desktop
     pkgs.element-desktop
     pkgs.swaybg
+    pkgs.protonmail-desktop
+    pkgs.tofi
+    pkgs.wleave
+    #pkgs.waylogout
+    pkgs.wlogout
     #pkgs.virt-manager
     #pkgs.citrix_workspace
     #pkgs.cups

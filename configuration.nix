@@ -123,13 +123,14 @@
     firefox
     #alacritty
     #hyprland
-    wofi
+    #wofi
     slack
     #waybar
     starship
     #git
     chromium
     pulsemixer
+   # protonmail-desktop
   #  wget
   ];
 

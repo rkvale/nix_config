@@ -41,8 +41,8 @@ in {
     "$MOD" = "SUPER";
 
     "$terminalcmd" = "alacritty";
-    #"$runnercmd" = ''hyprctl dispatch exec "$(tofi-drun --width 40% --height 30%)"'';
-    "$runnercmd" = ''hyprctl dispatch exec "$(wofi --show drun --width 40% --height 30%)"'';
+    "$runnercmd_tofi" = ''hyprctl dispatch exec "$(tofi-drun --width 40% --height 30%)"'';
+    #"$runnercmd" = ''hyprctl dispatch exec "$(wofi --show drun --width 40% --height 30%)"'';
     #"$scrotcmd" = ''grim -g "$(slurp -d)" - | wl-copy --type image/png'';
     "$scrotcmd" = ''slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')'';
     "$lockcmd" = "hyprlock";
@@ -57,7 +57,8 @@ in {
           "$MOD,       Q, killactive"
 
           "$MOD,       RETURN, exec, $terminalcmd"
-          "$MOD,       P,      exec, $runnercmd"
+          #"$MOD,       P,      exec, $runnercmd"
+	  "$MOD,       P,      exec, $runnercmd_tofi"
           "$MOD SHIFT, S,      exec, $scrotcmd"
           "$MOD SHIFT, L,      exec, $lockcmd"
           "$MOD SHIFT, D,      exec, $dismisscmd"
