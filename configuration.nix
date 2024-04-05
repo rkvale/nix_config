@@ -49,6 +49,14 @@
     xkb.variant = "";
   };
 
+  #antivirus
+  services.clamav = {
+    daemon.enable = true;
+    updater.enable = true;
+  };
+
+
+
   # adding flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

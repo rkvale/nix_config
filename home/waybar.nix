@@ -37,7 +37,7 @@ in {
       active-only = false;
       format = "{icon}";
       format-icons = let
-        roman = ["I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX"];
+        roman = ["1" "2" "3" "4" "5" "6" "7" "8" "9"];
         genWs = base:
           builtins.listToAttrs (builtins.genList (i: {
               name = toString (i + base);
@@ -56,7 +56,7 @@ in {
     };
     "custom/power" = {
       format = " ";
-      on-click = "hyprlock";
+      on-click = "wlogout";
     };
     clock = {
       format = "{:%H:%M}";
@@ -187,6 +187,10 @@ in {
 
       #workspaces button.focused {
         color: @blue;
+      }
+
+      #workspaces button.active {
+	color: @green;
       }
 
       #workspaces button:hover {

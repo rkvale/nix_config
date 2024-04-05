@@ -15,6 +15,19 @@
   programs.bash.enable = true;
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  #home.file.".config/test/test002.conf".source = dotfiles/test.conf;
+  #    lib.file.mkOutOfStoreSymlink = path:|
+  #home.file.".config/test/test005.conf" = {
+  #  source = ./dotfiles/test.conf;
+    #source = /home/runek/Documents/nix_config/home/dotfiles/test.conf;
+    #recursive = true;
+    #executable = true;
+  #};
+  home.file.".config/test/test006.conf".text = ''
+    en liten test
+    nok en linje
+  '';
+
   programs.git = {
     enable = true;
     userName  = "rhkvale";
@@ -85,9 +98,10 @@
     pkgs.swaybg
     pkgs.protonmail-desktop
     pkgs.tofi
-    pkgs.wleave
+    #pkgs.wleave
     #pkgs.waylogout
     pkgs.wlogout
+    pkgs.virtio-win
     #pkgs.virt-manager
     #pkgs.citrix_workspace
     #pkgs.cups
