@@ -15,18 +15,18 @@
   programs.bash.enable = true;
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  #home.file.".config/test/test002.conf".source = dotfiles/test.conf;
-  #    lib.file.mkOutOfStoreSymlink = path:|
-  #home.file.".config/test/test005.conf" = {
-  #  source = ./dotfiles/test.conf;
+  #home.file.".config/test/test002.conf".source = ./dotfiles/test.conf;
+ #working home.file.".config/test/test005.conf" = {
+ #working   source = ./dotfiles/test.conf;
     #source = /home/runek/Documents/nix_config/home/dotfiles/test.conf;
     #recursive = true;
     #executable = true;
-  #};
-  home.file.".config/test/test006.conf".text = ''
-    en liten test
-    nok en linje
-  '';
+  #working};
+
+  #hyprlock config file
+  #home.file.".config/hypr/hyprlock.conf".source = ./dotfiles/hyprlock.conf;
+  xdg.configFile."test007".source = ./dotfiles/hypr/hyprlock.conf;
+  xdg.configFile."test008".source = ./dotfiles/hypr/hyprlock.conf;
 
   programs.git = {
     enable = true;
