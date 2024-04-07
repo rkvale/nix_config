@@ -26,6 +26,17 @@
   #home.file.".config/hypr/hyprlock.conf".source = ./dotfiles/hyprlock.conf;
   # OK xdg.configFile."test007".source = ./dotfiles/hypr/hyprlock.conf;
   # OK xdg.configFile."test008".source = ./dotfiles/hypr/hyprlock.conf;
+ #working home.file.".config/test/test005.conf" = {
+ #working   source = ./dotfiles/test.conf;
+    #source = /home/runek/Documents/nix_config/home/dotfiles/test.conf;
+    #recursive = true;
+    #executable = true;
+  #working};
+
+  #hyprlock config file
+  #home.file.".config/hypr/hyprlock.conf".source = ./dotfiles/hyprlock.conf;
+  #xdg.configFile."test007".source = ./dotfiles/hypr/hyprlock.conf;
+  #xdg.configFile."test008".source = ./dotfiles/hypr/hyprlock.conf;
 
   programs.git = {
     enable = true;
