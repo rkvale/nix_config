@@ -15,7 +15,13 @@
   programs.bash.enable = true;
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  #home.file.".config/test/test002.conf".source = ./dotfiles/test.conf;
+  home.file.".config/wlogout/" = {
+    source = .dotfiles/wlogout;
+    recursive = true;
+  };
+
+
+
   home.file.".config/hypr/hyprlock.conf" = {
     source = ./dotfiles/hypr/hyprlock.conf;
     #recursive = true;
