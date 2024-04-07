@@ -5,6 +5,7 @@
 
   imports = [
     ./hyprland.nix
+    ./hosts.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -15,41 +16,90 @@
   programs.bash.enable = true;
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  #wlogout config files
   home.file.".config/wlogout/" = {
-    source = .dotfiles/wlogout;
+    source = ./dotfiles/wlogout;
     recursive = true;
   };
 
-
-
+  #hyprlock config file
   home.file.".config/hypr/hyprlock.conf" = {
     source = ./dotfiles/hypr/hyprlock.conf;
     #recursive = true;
     #executable = true;
   };
 
-  #hyprlock config file
-  #home.file.".config/hypr/hyprlock.conf".source = ./dotfiles/hyprlock.conf;
-  # OK xdg.configFile."test007".source = ./dotfiles/hypr/hyprlock.conf;
-  # OK xdg.configFile."test008".source = ./dotfiles/hypr/hyprlock.conf;
- #working home.file.".config/test/test005.conf" = {
- #working   source = ./dotfiles/test.conf;
-    #source = /home/runek/Documents/nix_config/home/dotfiles/test.conf;
-    #recursive = true;
-    #executable = true;
-  #working};
-
-  #hyprlock config file
-  #home.file.".config/hypr/hyprlock.conf".source = ./dotfiles/hyprlock.conf;
-  #xdg.configFile."test007".source = ./dotfiles/hypr/hyprlock.conf;
-  #xdg.configFile."test008".source = ./dotfiles/hypr/hyprlock.conf;
-
   programs.git = {
     enable = true;
     userName  = "rhkvale";
     userEmail = "rune@kvale.io";
   };
-  #testing
+  
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = false;
+      format = "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
+      shlvl = {
+        disabled = false;
+        symbol = "ﰬ";
+        style = "bright-red bold";
+      };
+      shell = {
+        disabled = false;
+        format = "$indicator";
+        fish_indicator = "";
+        bash_indicator = "[BASH](bright-white) ";
+        zsh_indicator = "[ZSH](bright-white) ";
+      };
+      username = {
+        style_user = "bright-red bold";
+        style_root = "bright-red bold";
+      };
+      hostname = {
+        style = "bright-green bold";
+        ssh_only = true;
+      };
+      nix_shell = {
+        symbol = "";
+        format = "[$symbol$name]($style) ";
+        style = "bright-purple bold";
+      };
+      git_branch = {
+        only_attached = true;
+        format = "[$symbol$branch]($style) ";
+        symbol = "שׂ";
+        style = "bright-yellow bold";
+      };
+      git_commit = {
+        only_detached = true;
+        format = "[ﰖ$hash]($style) ";
+        style = "bright-yellow bold";
+      };
+      git_state = {
+        style = "bright-purple bold";
+      };
+      git_status = {
+        style = "bright-green bold";
+      };
+      directory = {
+        read_only = " ";
+        truncation_length = 0;
+      };
+      cmd_duration = {
+        format = "[$duration]($style) ";
+        style = "bright-blue";
+      };
+      jobs = {
+        style = "bright-green bold";
+      };
+      character = {
+        success_symbol = "[\\$](bright-green bold)";
+        error_symbol = "[\\$](bright-red bold)";
+      };
+    };
+  };
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards

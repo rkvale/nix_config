@@ -111,6 +111,8 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
+  
+  programs.fish.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.runek = {
@@ -118,6 +120,7 @@
     description = "Rune Kvale";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [];
+    shell = pkgs.fish;
   };
 
 #  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
