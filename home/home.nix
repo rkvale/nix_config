@@ -16,7 +16,7 @@
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   home.file.".config/wlogout/" = {
-    source = .dotfiles/wlogout;
+    source = ./dotfiles/wlogout;
     recursive = true;
   };
 
