@@ -137,7 +137,7 @@
     #wofi
     slack
     #waybar
-    starship
+    #starship
     #git
     chromium
     pulsemixer
