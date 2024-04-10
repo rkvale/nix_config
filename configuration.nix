@@ -112,16 +112,8 @@
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
   
-  #programs.fish.enable = true;
+  programs.fish.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.runek = {
-    isNormalUser = true;
-    description = "Rune Kvale";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
-    packages = with pkgs; [];
-    #shell = pkgs.fish;
-  };
 
 #  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 #   "1password-gui"
@@ -132,6 +124,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     firefox
+    #fish
     #alacritty
     #hyprland
     #wofi
@@ -145,6 +138,15 @@
   #  wget
   ];
 
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.runek = {
+    isNormalUser = true;
+    description = "Rune Kvale";
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    packages = with pkgs; [];
+    shell = pkgs.fish;
+  };
 
     fonts.packages = with pkgs; [
       (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" "Iosevka"]; })

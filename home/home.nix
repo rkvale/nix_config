@@ -33,7 +33,22 @@
     userName  = "rhkvale";
     userEmail = "rune@kvale.io";
   };
-  
+
+  programs.starship = {
+    enable = true;
+    enableTransience = true;
+    settings = {
+      character.success_symbol = "[➜](bold green)";
+      hostname.format = "[$hostname]($style) in ";
+      username.format = "[$user]($style) @ ";
+      nix_shell = {
+        format = "[$state$symbol]($style) ";
+        symbol = "❄️";
+        pure_msg = "pure ";
+        impure_msg = "";
+      };
+    };
+  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
