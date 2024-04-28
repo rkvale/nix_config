@@ -129,6 +129,7 @@
     #hyprland
     #wofi
     slack
+    poppler_utils  #pdf utils 
     #waybar
     #starship
     #git

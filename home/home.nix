@@ -1,8 +1,6 @@
 { inputs, config, pkgs, ... }:
 
 {
-
-
   imports = [
     ./hyprland.nix
   ];
@@ -122,7 +120,8 @@
     #pkgs.citrix_workspace
     #pkgs.cups
   ];
-  
+  programs.taskwarrior.enable = true; 
+  #programs.tofi.enable = true;
   #programs.system-config-printer.enable = true;  
   #services.printing.enable = true;
   programs.alacritty.enable = true;
@@ -140,7 +139,3 @@
   };
 
 }
-
-
-
-

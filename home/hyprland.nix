@@ -3,7 +3,9 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+#    tofi-font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/JetBrainsMonoNerdFont-Regular.ttf";
+in {
   imports = [
 #    ./common/gui.nix
 #    ./common/wayland.nix
@@ -14,7 +16,6 @@
     ./base.nix
     ./input.nix
   ];
-
 
   # Packages, programs, and services required for the configuration to work.
 #  home.packages = with pkgs; [swaybg acpilight grim slurp tofi wdisplays];
@@ -52,6 +53,28 @@
 #  };
   # Notification daemon
 #  services.mako.enable = true;
+
+#  programs.tofi = {
+#    enable = true;
+#    settings = {
+#      font = tofi-font;
+#      font-size = 14;
+#      prompt-text = "\"> \"";
+
+#      # These aren't handled by the colorscheme...
+#      # might fix that but I can't be asked rn
+#      outline-width = 0;
+#      border-width = 0;
+
+#      # catppuccin mocha
+#      text-color = "#cdd6f4";
+#      prompt-color = "#f38ba8";
+#      selection-color = "#f9e2af";
+#      background-color = "#1e1e2e";
+#    };
+#  };
+
+
 
   wayland.windowManager.hyprland = {
     enable = true;
