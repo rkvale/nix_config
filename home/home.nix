@@ -112,6 +112,7 @@
     pkgs.swaybg
     pkgs.protonmail-desktop
     pkgs.tofi
+    pkgs.logseq
     #pkgs.wleave
     #pkgs.waylogout
     pkgs.wlogout
