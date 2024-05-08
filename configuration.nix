@@ -124,11 +124,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     firefox
+    mako
     #fish
     #alacritty
     #hyprland
     #wofi
     slack
+    #zulu
+    #libreoffice-qt
     poppler_utils  #pdf utils 
     #waybar
     #starship

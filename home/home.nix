@@ -112,6 +112,8 @@
     pkgs.swaybg
     pkgs.protonmail-desktop
     pkgs.tofi
+    #pkgs.zulu
+    pkgs.libreoffice-fresh
     #pkgs.wleave
     #pkgs.waylogout
     pkgs.wlogout
