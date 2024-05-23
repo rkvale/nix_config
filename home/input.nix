@@ -78,6 +78,8 @@ in {
 
           # Workspaces
           "$MOD, TAB, ${workspace}, previous"
+          "$MOD, RIGHT, ${workspace}, e+1"
+          "$MOD, LEFT, ${workspace}, e-1"
 
           # Monitors
           "$MOD,       comma,  focusmonitor,              -1"

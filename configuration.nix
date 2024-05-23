@@ -124,6 +124,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     firefox
+    #librewolf
+    _1password
     mako
     #fish
     #alacritty
