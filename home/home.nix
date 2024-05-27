@@ -89,6 +89,7 @@
   #programs.home-manager.enable = true;
   
   home.packages = [
+    pkgs.texliveMedium
     pkgs.hyprlock
     pkgs.hypridle
     #pkgs.hyprpaper
