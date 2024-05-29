@@ -5,18 +5,24 @@
   ...
 }: let
 #    tofi-font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/JetBrainsMonoNerdFont-Regular.ttf";
+
 in {
   imports = [
 #    ./common/gui.nix
 #    ./common/wayland.nix
 #
     ./waybar.nix
+    ./zathura.nix
 #
 #    ./hyprland/theme-catppuccin-mocha.nix
     ./base.nix
     ./input.nix
   ];
+#  "$scrotcmd" = ''mkdir -p ${screenshotsDir} && ${grim} -g "$(${slurp} -d)" - | tee ${screenshotsDir}/$(date +%s).png | ${wl-copy} --type image/png'';
 
+ # bind = [
+ #   "$MOD SHIFT, S	, exec $scrotcmd"
+ # ];
   # Packages, programs, and services required for the configuration to work.
 #  home.packages = with pkgs; [swaybg acpilight grim slurp tofi wdisplays];
   # Lock screen

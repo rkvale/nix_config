@@ -89,8 +89,9 @@
   #programs.home-manager.enable = true;
   
   home.packages = [
-    pkgs.zathura             # command line pdf viewer
-    pkgs.jq                  # json prettyfier
+    pkgs.swappy 		# editere bilder
+    #pkgs.zathura             	# command line pdf viewer
+    pkgs.jq                  	# json prettyfier
     pkgs.texliveMedium
     pkgs.hyprlock
     pkgs.hypridle
