@@ -12,7 +12,7 @@ in {
 #    ./common/wayland.nix
 #
     ./waybar.nix
-    ./zathura.nix
+    ./programs/zathura.nix
 #
 #    ./hyprland/theme-catppuccin-mocha.nix
     ./base.nix
