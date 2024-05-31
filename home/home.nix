@@ -90,6 +90,7 @@
   
   home.packages = [
     pkgs.tidal-hifi
+    pkgs.nh                 # for å rydde litt i nixos :-)
     pkgs.swappy 		# editere bilder
     #pkgs.zathura             	# command line pdf viewer
     pkgs.jq                  	# json prettyfier
