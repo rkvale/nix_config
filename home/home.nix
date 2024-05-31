@@ -94,7 +94,7 @@
     pkgs.swappy 		# editere bilder
     #pkgs.zathura             	# command line pdf viewer
     pkgs.jq                  	# json prettyfier
-    pkgs.texliveMedium
+    pkgs.texliveFull
     pkgs.hyprlock
     pkgs.hypridle
     #pkgs.hyprpaper
