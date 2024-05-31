@@ -89,6 +89,7 @@
   #programs.home-manager.enable = true;
   
   home.packages = [
+    pkgs.tidal-hifi
     pkgs.swappy 		# editere bilder
     #pkgs.zathura             	# command line pdf viewer
     pkgs.jq                  	# json prettyfier
