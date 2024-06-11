@@ -103,6 +103,7 @@
     pkgs.grim
     pkgs.slurp
     pkgs.obsidian
+    pkgs.geeqie             #image viewer
     pkgs.swappy
     #pkgs.hyprshot
     pkgs.openfortivpn
