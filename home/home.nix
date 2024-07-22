@@ -78,7 +78,8 @@
     theme.package = pkgs.flat-remix-gtk;
 
     iconTheme.name = "Adwaita";
-    iconTheme.package = pkgs.gnome.adwaita-icon-theme;
+    iconTheme.package = pkgs.adwaita-icon-theme;
+    #iconTheme.package = pkgs.gnome.adwaita-icon-theme;
 
     # Only available since 4.0 apparently.
     gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
