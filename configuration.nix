@@ -87,7 +87,8 @@
 
 
   # Some Hyprland stuff
-  hardware.opengl.enable = true;
+  #hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
  
   programs.thunar.plugins = with pkgs.xfce; [
     thunar-archive-plugin
