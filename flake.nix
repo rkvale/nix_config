@@ -6,13 +6,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    #Hyprland
-    # Do not override nixpkgs input as Hyprland has its own binary cache.
-    hyprland.url = "github:hyprwm/Hyprland/v0.37.1";
-#    hyprland-split-monitor-workspaces = {
-#      url = "github:Duckonaut/split-monitor-workspaces";
-#      inputs.hyprland.follows = "hyprland";
-#    };
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {self, hyprland, nixpkgs, home-manager, ...}: {
@@ -21,19 +16,12 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix
-        #hyprland.nixosModules.default{
-        #  programs.hyprland.enable = true;
-        #}
         home-manager.nixosModules.home-manager
-      
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-	  home-manager.extraSpecialArgs = {inherit inputs;};
+	        home-manager.extraSpecialArgs = {inherit inputs;};
           home-manager.users.runek = import ./home/home.nix;
-
-          # Optionally, use home-manager.extraSpecialArgs to pass
-          # arguments to home.nix
         }
     ];
    };
