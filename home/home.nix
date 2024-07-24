@@ -3,6 +3,7 @@
 {
   imports = [
     ./hyprland.nix
+    ./swww.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -24,6 +25,10 @@
     source = ./dotfiles/hypr/hyprlock.conf;
     #recursive = true;
     #executable = true;
+  };
+
+  services.swww = {
+    enable = true;
   };
 
   programs.git = {
