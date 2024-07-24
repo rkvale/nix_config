@@ -7,7 +7,7 @@
       "waybar"
     ];
     master = {
-      new_is_master = true;
+      new_status = "master";
       new_on_top = true;
     };
 
@@ -23,8 +23,8 @@
       border_size = 2;
       "col.active_border" = "rgba(d82170ee)";
       "col.inactive_border" = "rgba(58c645ee)";
-      cursor_inactive_timeout = 5;
     };
+    cursor.inactive_timeout = 5;
     decoration = {
       rounding = 6;
       blur = {
