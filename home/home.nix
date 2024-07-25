@@ -31,6 +31,12 @@
     enable = true;
   };
 
+  programs.ssh.extraConfig = ''
+    Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
+    KexAlgorithms sntrup761x25519-sha512@openssh.com,curve25519-sha256@libssh.org
+    MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
+  '';
+
   programs.git = {
     enable = true;
     userName  = "rhkvale";
