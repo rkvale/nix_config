@@ -5,6 +5,7 @@
     ./hyprland.nix
     ./swww.nix
     ./neovim.nix
+    ./programs/alacritty.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -139,24 +140,24 @@
     pkgs.virtio-win
     #pkgs.virt-manager
     #pkgs.citrix_workspace
-    #pkgs.cups
+    # pkgs.cups
   ];
   programs.taskwarrior.enable = true; 
   #programs.tofi.enable = true;
   #programs.system-config-printer.enable = true;  
   #services.printing.enable = true;
-  programs.alacritty.enable = true;
-  programs.alacritty.settings =
-    {
-      ipc_socket = false;
-      window = {
-        padding.x = 2;
-        padding.y = 0;
-        decorations = "None";
-        dynamic_title = true;
-      };
-      font.normal.family = "JetBrainsMono NF";
-      font.size = 12.75;
-  };
+  #programs.alacritty.enable = true;
+  # programs.alacritty.settings =
+  #   {
+  #     ipc_socket = false;
+      # window = {
+  #       padding.x = 2;
+  #       padding.y = 0;
+  #       decorations = "None";
+  #       dynamic_title = true;
+  #     };
+  #     font.normal.family = "JetBrainsMono NF";
+  #     font.size = 12.75;
+  # };
 
 }
