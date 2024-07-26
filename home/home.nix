@@ -3,8 +3,8 @@
 {
   imports = [
     ./hyprland.nix
-    ./swww.nix
-    ./neovim.nix
+    ./programs/swww.nix
+    ./programs/neovim.nix
     ./programs/alacritty.nix
   ];
 
