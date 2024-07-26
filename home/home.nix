@@ -4,6 +4,7 @@
   imports = [
     ./hyprland.nix
     ./swww.nix
+    ./neovim.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -21,7 +22,7 @@
     recursive = true;
   };
 
-  programs.fish.shellAliases.nrs = "nh os switch ~/Documents/nix_config";
+# programs.fish.shellAliases.nrs = "nh os switch ~/Documents/nix_config";
 
   #hyprlock config file
   home.file.".config/hypr/hyprlock.conf" = {

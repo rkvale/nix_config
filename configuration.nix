@@ -11,6 +11,13 @@
       ./vm.nix
     ];
 
+  # roflolmapcopter
+  nixpkgs.overlays = [
+    (_: _: {
+      inputs = builtins.mapAttrs (_: input: (input.packages or inputs.legacyPackages).${pkgs.system} or {}) inputs;
+    })
+  ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
