@@ -129,7 +129,7 @@
     pkgs.postman
     pkgs.signal-desktop
     pkgs.element-desktop
-    pkgs.swaybg
+    # pkgs.swaybg
     pkgs.protonmail-desktop
     pkgs.tofi
     #pkgs.zulu
