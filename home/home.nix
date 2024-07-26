@@ -10,15 +10,18 @@
   # paths it should manage.
   home.username = "runek";
   home.homeDirectory = "/home/runek";
-
-  programs.bash.enable = true;
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    GOPRIVATE = "github.com/managenordic/*";
+  };
 
   #wlogout config files
   home.file.".config/wlogout/" = {
     source = ./dotfiles/wlogout;
     recursive = true;
   };
+
+  programs.fish.shellAliases.nrs = "nh os switch ~/Documents/nix_config";
 
   #hyprlock config file
   home.file.".config/hypr/hyprlock.conf" = {
@@ -35,6 +38,7 @@
     enable = true;
     userName  = "rhkvale";
     userEmail = "rune@kvale.io";
+    extraConfig.url."ssh://github.com:managenordic/".insteadOf = "https://github.com/Managenordic/";
   };
 
   programs.starship = {
