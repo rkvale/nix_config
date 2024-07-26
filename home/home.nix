@@ -95,6 +95,8 @@
   #programs.home-manager.enable = true;
   
   home.packages = [
+    pkgs.go
+    pkgs.gcc
     pkgs.tidal-hifi
     pkgs.nh                 # for å rydde litt i nixos :-)
     pkgs.swappy 		# editere bilder
@@ -105,7 +107,6 @@
     pkgs.hypridle
     #pkgs.hyprpaper
     #pkgs.flameshot
-    pkgs.nh
     pkgs.grim
     pkgs.slurp
     pkgs.obsidian
