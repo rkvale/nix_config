@@ -38,7 +38,7 @@
 
   programs.git = {
     enable = true;
-    userName  = "rhkvale";
+    userName  = "rkvale";
     userEmail = "rune@kvale.io";
     extraConfig.url."ssh://github.com:managenordic/".insteadOf = "https://github.com/managenordic/";
   };
