@@ -7,7 +7,7 @@
     ./programs/neovim.nix
     ./programs/alacritty.nix
     ./programs/river.nix
-    #    ./programs/kitty.nix
+    ./programs/kitty.nix
   ];
 
   # Home Manager needs a bit of information about you and the
