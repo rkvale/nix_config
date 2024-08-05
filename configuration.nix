@@ -62,7 +62,9 @@
     updater.enable = true;
   };
 
-
+ nix = {
+  package = lib.mkDefault pkgs.nixVersions.latest
+ }
 
   # adding flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
