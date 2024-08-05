@@ -168,8 +168,9 @@
           map.normal = builtins.mapAttrs (_: command: "spawn '${command}'") {
             # Essential shortcuts, tampering with these in any way is sacrilege and
             # subject to punishment by death penalty + life in prison, in that order.
-            "Super Return" = "kitty --single-instance --instance-group river";
-            "Super P" = "riverctl spawn \"$(tofi-drun)\"";
+            # "Super Return" = "kitty --single-instance --instance-group river";
+            "Super Return" = "alacritty";
+    #"Super P" = "riverctl spawn \"$(tofi-drun)\"";
 
             # Same as Hyprland, this is temporary until I find something else.
             "Super+Shift L" = "hyprlock";
