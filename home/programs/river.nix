@@ -164,7 +164,7 @@
 #         #
 #         # Spawn bindings
 #         #
-        {
+        # {
           map.normal = builtins.mapAttrs (_: command: "spawn '${command}'") {
             # Essential shortcuts, tampering with these in any way is sacrilege and
             # subject to punishment by death penalty + life in prison, in that order.
@@ -175,12 +175,12 @@
             "Super+Shift L" = "hyprlock";
 
             # Stuff
-            "Super+Shift S" = lib.getExe pkgs.inputs.self.snipping-tool;
+    #  "Super+Shift S" = lib.getExe pkgs.inputs.self.snipping-tool;
             "Super+Shift D" = "makoctl dismiss -a";
 
-            "None Pause" = lib.getExe pkgs.inputs.self.toggle-mute;
+    #       "None Pause" = lib.getExe pkgs.inputs.self.toggle-mute;
           };
-        }
+        # }
 #
 #         #
 #         # DWM bindings
