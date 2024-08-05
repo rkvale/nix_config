@@ -1,9 +1,9 @@
-# {
-#   pkgs,
-#   lib,
-#   config,
-#   ...
-# }:
+{
+  pkgs,
+  lib,
+#  config,
+  ...
+}:
 # lib.mkIf config.gk.gui.river.enable {
 #   #
 #   # First off.
@@ -77,7 +77,7 @@
 #           #
 #           # Environment
 #           #
-#           spawn = map (s: "'${s}'") [
+          spawn = map (s: "'${s}'") [
 #             # Considered running this with systemd, but after much trial and error it
 #             # turns out that it's pretty fucking stupid to do so. Actually, no matter
 #             # what, user units are kinda broken when using multiple window managers
@@ -85,7 +85,7 @@
 #             "waybar"
 #
 #             # Workaround that forwards the clipboard from X11 to Wayland.
-#             "wl-paste -t text/plain -w ${lib.getExe pkgs.xclip} -selection clipboard"
+            "wl-paste -t text/plain -w ${lib.getExe pkgs.xclip} -selection clipboard"
 #           ];
 #
 #           #
