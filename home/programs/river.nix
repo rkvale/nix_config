@@ -230,15 +230,15 @@
         }
 
         # Most function keys are available in both normal and locked mode.
-        # {
-        #   map = lib.genAttrs ["normal" "locked"] (_: {
-        #     "None XF86AudioMute" = "spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'";
-        #     "None XF86AudioRaiseVolume" = "spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'";
-        #     "None XF86AudioLowerVolume" = "spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'";
-        #     "None XF86MonBrightnessUp" = "spawn 'xbacklight -inc 10'";
-        #     "None XF86MonBrightnessDown" = "spawn 'xbacklight -dec 10'";
-        #   });
-        # }
+        {
+          map = lib.genAttrs ["normal" "locked"] (_: {
+            "None XF86AudioMute" = "spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'";
+            "None XF86AudioRaiseVolume" = "spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'";
+            "None XF86AudioLowerVolume" = "spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'";
+            "None XF86MonBrightnessUp" = "spawn 'xbacklight -inc 10'";
+            "None XF86MonBrightnessDown" = "spawn 'xbacklight -dec 10'";
+          });
+        }
 
         # Disable internal display when laptop lid is closed.
         {
