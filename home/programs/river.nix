@@ -86,7 +86,7 @@
 #
 #             # Workaround that forwards the clipboard from X11 to Wayland.
             "wl-paste -t text/plain -w ${lib.getExe pkgs.xclip} -selection clipboard"
-#           ];
+          ];
 #
 #           #
 #           # Appearance.
