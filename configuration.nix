@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, ... }:
+{ inputs, lib, config, pkgs, ... }:
 
 {
   imports =
@@ -63,8 +63,8 @@
   };
 
  nix = {
-  package = lib.mkDefault pkgs.nixVersions.latest
- }
+  package = lib.mkDefault pkgs.nixVersions.latest;
+ };
 
   # adding flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
