@@ -105,15 +105,15 @@
           # };
           # input."'pointer-1133-16514-Logitech_MX_Master_3'".pointer-accel = "1.0";
           #
-          # keyboard-layout = let
-          #   xkb = config.home.keyboard;
-          # in
-          #   builtins.concatStringsSep " " (
-          #     lib.optional (xkb.model != null) "-model ${xkb.model}"
-          #     ++ lib.optional (xkb.variant != null) "-variant ${xkb.variant}"
-          #     ++ lib.optional (xkb.options != null) "-options ${builtins.concatStringsSep "," xkb.options}"
-          #     ++ [xkb.layout]
-          #   );
+          keyboard-layout = let
+            xkb = config.home.keyboard;
+          in
+            builtins.concatStringsSep " " (
+              lib.optional (xkb.model != null) "-model ${xkb.model}"
+              ++ lib.optional (xkb.variant != null) "-variant ${xkb.variant}"
+              ++ lib.optional (xkb.options != []) "-options ${builtins.concatStringsSep "," xkb.options}"
+              ++ [xkb.layout]
+            );
           #
           # Mouse/cursor related.
           # focus-follows-cursor = "normal"; # on entering views
