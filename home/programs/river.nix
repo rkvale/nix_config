@@ -135,12 +135,12 @@
           # map.passthrough."Super F11" = "enter-mode normal";
 
           # Working with floating windows.
-          # map-pointer.normal = {
-          #   "Super BTN_LEFT" = "move-view";
-          #   "Super BTN_RIGHT" = "resize-view";
-          #   "Super BTN_MIDDLE" = "toggle-float";
-          # };
-          # map.normal."Super Space" = "toggle-float";
+           map-pointer.normal = {
+             "Super BTN_LEFT" = "move-view";
+             "Super BTN_RIGHT" = "resize-view";
+             "Super BTN_MIDDLE" = "toggle-float";
+           };
+           map.normal."Super Space" = "toggle-float";
 
           # General stuff
           map.normal = {
@@ -175,7 +175,7 @@
             # "Super+Shift S" = lib.getExe pkgs.inputs.self.snipping-tool;
             "Super+Shift D" = "makoctl dismiss -a";
 
-            "None Pause" = lib.getExe pkgs.inputs.self.toggle-mute;
+            #"None Pause" = lib.getExe pkgs.inputs.self.toggle-mute;
           };
         }
 
@@ -186,28 +186,28 @@
           map.normal =
             {
               # Windows
-              # "Super J" = "focus-view next";
-              # "Super K" = "focus-view previous";
-              # "Super+Shift J" = "swap next";
-              # "Super+Shift K" = "swap previous";
-              # "Super+Alt H" = "move left 100";
-              # "Super+Alt J" = "move down 100";
-              # "Super+Alt K" = "move up 100";
-              # "Super+Alt L" = "move right 100";
-              # "Super+Alt+Shift H" = "resize horizontal -100";
-              # "Super+Alt+Shift J" = "resize vertical +100";
-              # "Super+Alt+Shift K" = "resize vertical -100";
-              # "Super+Alt+Shift L" = "resize horizontal +100";
+               "Super J" = "focus-view next";
+               "Super K" = "focus-view previous";
+               "Super+Shift J" = "swap next";
+               "Super+Shift K" = "swap previous";
+               "Super+Alt H" = "move left 100";
+               "Super+Alt J" = "move down 100";
+               "Super+Alt K" = "move up 100";
+               "Super+Alt L" = "move right 100";
+               "Super+Alt+Shift H" = "resize horizontal -100";
+               "Super+Alt+Shift J" = "resize vertical +100";
+               "Super+Alt+Shift K" = "resize vertical -100";
+               "Super+Alt+Shift L" = "resize horizontal +100";
               #
               # # Layout
-              # "Super Tab" = "focus-previous-tags";
+               "Super Tab" = "focus-previous-tags";
               #
-              # "Super H" = "send-layout-cmd rivertile 'main-ratio -0.05'";
-              # "Super L" = "send-layout-cmd rivertile 'main-ratio +0.05'";
-              # "Super I" = "send-layout-cmd rivertile 'main-count +1'";
-              # "Super D" = "send-layout-cmd rivertile 'main-count -1'";
+               "Super H" = "send-layout-cmd rivertile 'main-ratio -0.05'";
+               "Super L" = "send-layout-cmd rivertile 'main-ratio +0.05'";
+               "Super I" = "send-layout-cmd rivertile 'main-count +1'";
+               "Super D" = "send-layout-cmd rivertile 'main-count -1'";
               #
-              # "Super M" = "toggle-fullscreen";
+               "Super M" = "toggle-fullscreen";
               #
               # Monitors
               "Super Comma" = "focus-output left";
