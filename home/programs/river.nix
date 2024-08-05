@@ -10,23 +10,24 @@
 #   #
 {
   wayland.windowManager.river.enable = true;
-}
+
 #
 #   #
 #   # Dependencies.
 #   #
-#   programs = {
-#     hyprlock.enable = true; # screen lock
+  programs = {
+    hyprlock.enable = true; # screen lock
 #     kitty.enable = true; # terminal
-#     tofi.enable = true; # menu
-#     waybar.enable = true; # status bar
-#   };
-#   services = {
-#     mako.enable = true; # notifications
-#     swww.enable = true; # wallpapers
+    tofi.enable = true; # menu
+    waybar.enable = true; # status bar
+  };
+  services = {
+    mako.enable = true; # notifications
+    swww.enable = true; # wallpapers
 #     swww.defaultImage = ../assets/wallpaper.png;
 #     udiskie.enable = false; # automatic mounting
-#   };
+  };
+
 #
 #   home.packages = with pkgs; [acpilight imv wl-clipboard wlr-randr];
 #
@@ -56,11 +57,11 @@
 #       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
 #     };
 #
-#     # Putting it in extraConfig writes it at the end of the file.
-#     extraConfig = ''
-#       riverctl default-layout rivertile
-#       riverctl spawn rivertile
-#     '';
+    # Putting it in extraConfig writes it at the end of the file.
+    extraConfig = ''
+      riverctl default-layout rivertile
+      riverctl spawn rivertile
+    '';
 #
 #     settings = let
 #       pow = b: n:
@@ -163,23 +164,23 @@
 #         #
 #         # Spawn bindings
 #         #
-#         {
-#           map.normal = builtins.mapAttrs (_: command: "spawn '${command}'") {
-#             # Essential shortcuts, tampering with these in any way is sacrilege and
-#             # subject to punishment by death penalty + life in prison, in that order.
-#             "Super Return" = "kitty --single-instance --instance-group river";
-#             "Super P" = "riverctl spawn \"$(tofi-drun)\"";
-#
-#             # Same as Hyprland, this is temporary until I find something else.
-#             "Super+Shift L" = "hyprlock";
-#
-#             # Stuff
-#             "Super+Shift S" = lib.getExe pkgs.inputs.self.snipping-tool;
-#             "Super+Shift D" = "makoctl dismiss -a";
-#
-#             "None Pause" = lib.getExe pkgs.inputs.self.toggle-mute;
-#           };
-#         }
+        {
+          map.normal = builtins.mapAttrs (_: command: "spawn '${command}'") {
+            # Essential shortcuts, tampering with these in any way is sacrilege and
+            # subject to punishment by death penalty + life in prison, in that order.
+            "Super Return" = "kitty --single-instance --instance-group river";
+            "Super P" = "riverctl spawn \"$(tofi-drun)\"";
+
+            # Same as Hyprland, this is temporary until I find something else.
+            "Super+Shift L" = "hyprlock";
+
+            # Stuff
+            "Super+Shift S" = lib.getExe pkgs.inputs.self.snipping-tool;
+            "Super+Shift D" = "makoctl dismiss -a";
+
+            "None Pause" = lib.getExe pkgs.inputs.self.toggle-mute;
+          };
+        }
 #
 #         #
 #         # DWM bindings
@@ -251,5 +252,4 @@
 #         }
 #       ];
 #   };
-# }
-#
+}
