@@ -58,7 +58,7 @@ in {
       # Box Drawing
       symbol_map U+2500-U+259f ${font}
 
-      clear_all_shortcuts yes
+      #clear_all_shortcuts yes
 
       map ctrl+shift+c copy_to_clipboard
       map ctrl+shift+v paste_from_clipboard

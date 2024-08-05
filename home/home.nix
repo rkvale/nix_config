@@ -44,7 +44,7 @@
     enable = true;
     userName  = "rkvale";
     userEmail = "rune@kvale.io";
-    extraConfig.url."ssh://git@github.com/managenordic/".insteadOf = "https://github.com/managenordic/";
+    extraConfig.url."ssh://git@github.com:managenordic/".insteadOf = "https://github.com/managenordic/";
   };
 
   programs.starship = {
