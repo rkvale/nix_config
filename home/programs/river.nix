@@ -58,10 +58,10 @@
 #     };
 #
     # Putting it in extraConfig writes it at the end of the file.
-    extraConfig = ''
-      riverctl default-layout rivertile
-      riverctl spawn rivertile
-    '';
+    # extraConfig = ''
+    #   riverctl default-layout rivertile
+    #   riverctl spawn rivertile
+    # '';
 #
 #     settings = let
 #       pow = b: n:
