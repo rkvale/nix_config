@@ -7,7 +7,7 @@
     ./programs/neovim.nix
     ./programs/alacritty.nix
     ./programs/river.nix
-    ./programs/kitty.nix
+    #    ./programs/kitty.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -26,6 +26,8 @@
   };
 
 # programs.fish.shellAliases.nrs = "nh os switch ~/Documents/nix_config";
+
+  home.keyboard.layout = "no";
 
   #hyprlock config file
   home.file.".config/hypr/hyprlock.conf" = {
