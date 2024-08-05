@@ -175,7 +175,7 @@
             # "Super+Shift S" = lib.getExe pkgs.inputs.self.snipping-tool;
             "Super+Shift D" = "makoctl dismiss -a";
 
-            "None Pause" = lib.getExe pkgs.inputs.self.toggle-mute;
+            #"None Pause" = lib.getExe pkgs.inputs.self.toggle-mute;
           };
         }
 
