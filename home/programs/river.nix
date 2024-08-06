@@ -116,15 +116,15 @@
             );
           #
           # Mouse/cursor related.
-          # focus-follows-cursor = "normal"; # on entering views
-          # hide-cursor = {
-          #   timeout = 5000;
-          #   when-typing = true;
-          # };
-          # set-cursor-warp = "on-output-change";
-          #
-          # xcursor-theme = let cfg = config.home.pointerCursor; in "${cfg.name} ${toString cfg.size}";
-          #
+          focus-follows-cursor = "normal"; # on entering views
+          hide-cursor = {
+            timeout = 5000;
+            when-typing = true;
+          };
+          set-cursor-warp = "on-output-change";
+
+          xcursor-theme = let cfg = config.home.pointerCursor; in "${cfg.name} ${toString cfg.size}";
+
           #
           # Keymaps
           #
