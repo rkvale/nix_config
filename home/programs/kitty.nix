@@ -1,5 +1,5 @@
 {config, ...}: let
-  font = config.gk.font.name;
+  #font = config.gk.font.name;
 in {
   programs.kitty = {
     catppuccin.enable = true;
