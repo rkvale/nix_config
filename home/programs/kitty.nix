@@ -1,5 +1,5 @@
 {config, ...}: let
-  font = "JetBrainsMono";
+  font = "JetBrainsMono NF";
 in {
   programs.kitty = {
     # catppuccin.enable = true;
