@@ -14,7 +14,7 @@ in {
       wayland_enable_ime = "no";
     };
     font.name = font;
-    font.size = 14;
+    font.size = 13;
     extraConfig = ''
       bold_font        ${font} Bold
       italic_font      ${font} Italic
