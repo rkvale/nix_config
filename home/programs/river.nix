@@ -93,17 +93,17 @@
           #
           # Input devices.
           #
-          set-repeat = "60 500"; # 60Hz after 200ms
+          set-repeat = "60 200"; # 60Hz after 200ms
 
           input."'pointer-*'" = {
             accel-profile = "flat"; # mouse acceleration disabled
-            pointer-accel = "-0.7"; # "half" mouse sensitivity
+            pointer-accel = "-0.5"; # "half" mouse sensitivity
           };
           input."'pointer-1739-52745-SYNA30D3:00_06CB:CE09'" = {
             pointer-accel = "0";
             tap = true;
           };
-          input."'pointer-1133-16489-Logitech_MX_Master_2S'".pointer-accel = "-0.5";
+          input."'pointer-1133-16489-Logitech_MX_Master_2S'".pointer-accel = "1.0";
           #
           keyboard-layout = let
             xkb = config.home.keyboard;
