@@ -21,7 +21,7 @@
   };
   services = {
     mako.enable = true; # notifications
-    swww.enable = true; # wallpapers
+    # swww.enable = true; # wallpapers
     #swww.defaultImage = ../assets/wallpaper.png;
     #udiskie.enable = false; # automatic mounting
   };
@@ -95,15 +95,15 @@
           #
           set-repeat = "60 200"; # 60Hz after 200ms
 
-          # input."'pointer-*'" = {
-          #   accel-profile = "flat"; # mouse acceleration disabled
-          #   pointer-accel = "-0.5"; # "half" mouse sensitivity
-          # };
-          # input."'pointer-1267-12868-ELAN07B0:00_04F3:3244_Touchpad'" = {
-          #   pointer-accel = "0";
-          #   tap = true;
-          # };
-          # input."'pointer-1133-16514-Logitech_MX_Master_3'".pointer-accel = "1.0";
+          input."'pointer-*'" = {
+            accel-profile = "flat"; # mouse acceleration disabled
+            pointer-accel = "-0.5"; # "half" mouse sensitivity
+          };
+          input."'pointer-1739-52745-SYNA30D3:00_06CB:CE09'" = {
+            pointer-accel = "0";
+            tap = true;
+          };
+          input."'pointer-1133-16489-Logitech_MX_Master_2S'".pointer-accel = "1.0";
           #
           keyboard-layout = let
             xkb = config.home.keyboard;
