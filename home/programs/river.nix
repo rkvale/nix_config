@@ -172,7 +172,7 @@
             "Super+Shift L" = "hyprlock";
 
             # Stuff
-            "$scrotcmd" = ''slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')'';
+            "$scrotcmd" = "slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
             # "Super+Shift S" = lib.getExe pkgs.inputs.self.snipping-tool;
             "Super+Shift S" = "slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')"; 
             "Super+Shift D" = "makoctl dismiss -a";
