@@ -1,39 +1,160 @@
 {
-  osConfig,
-  pkgs,
+  lib,
+  config,
   ...
 }: let
-  catppuccin =
-    pkgs.fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "waybar";
-      rev = "f74ab1eecf2dcaf22569b396eed53b2b2fbe8aff";
-      hash = "sha256-WLJMA2X20E5PCPg0ZPtSop0bfmu+pLImP9t8A8V4QK8=";
-    }
-    + /themes/mocha.css;
-in {
-  programs.waybar.enable = true;
-  programs.waybar.package = pkgs.waybar.override {wireplumberSupport = false;};
-  programs.waybar.settings.mainBar = {
-    layer = "top";
-    # Layout
-    #modules-left = ["hyprland/workspaces"];
-    modules-left = ["river/tags"];
-    modules-center = ["clock"];
-    modules-right =
-       [
-        "pulseaudio"
-        #"temperature"
-        #"disk"
-        "memory"
-        #"cpu"
-        "battery"
-        #"tray"
-        "network"
-        "custom/power"
-      ];
+  #  gui = config.gk.gui;
+in
+  lib.mkMerge [
+    (lib.mkIf config.programs.waybar.enable {
+      programs.waybar = {
+        settings.mainBar = {
+          layer = "top";
+          modules-center = ["clock"];
+          modules-right =
+            (
+              if config.gk.roles.music.enable
+              then ["mpd"]
+              else []
+            )
+            ++ [
+              "wireplumber"
+              "network"
+              "temperature"
+              "disk"
+              "memory"
+              "cpu"
+              "battery"
+              "tray"
+            ];
 
-    "river/tags" ={
+          clock = {
+            format = "{:%H:%M}";
+            tooltip = true;
+            tooltip-format = "{:%c}";
+          };
+          wireplumber = {
+            format = "{icon} {volume}%";
+            format-muted = "";
+            format-icons.default = ["" "" ""];
+            on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+            on-click-middle = "alacritty -e pulsemixer";
+          };
+          disk = {
+            interval = 60;
+            format = " {used}";
+            path = "/home";
+            tooltip = true;
+            tooltip-format = "{path}: {used}/{total} = {percentage_used}%";
+          };
+          mpd = {
+            max-length = 25;
+            format = "<span foreground='#bb9af7'></span> {title}";
+            format-paused = " {title}";
+            format-stopped = "<span foreground='#bb9af7'></span>";
+            format-disconnected = "";
+            on-click = "mpc --quiet toggle";
+            on-click-right = "mpc ls | mpc add";
+            on-click-middle = "alacritty -e ncmpcpp";
+            on-scroll-up = "mpc --quiet prev";
+            on-scroll-down = "mpc --quiet next";
+            smooth-scrolling-threshold = 5;
+            tooltip-format = "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
+          };
+          temperature = {
+            interval = 1;
+            hwmon-path-abs = "/sys/devices/pci0000:00/0000:00:18.3/hwmon";
+            input-filename = "temp3_input";
+            critical-threshold = 70;
+            format = "{icon} {temperatureC}°C";
+            format-critical = "󰸁 {temperatureC}°C";
+            format-icons = ["󱃃" "󱃃" "󱃃" "󱃃" "󰔏" "󱃂"];
+          };
+          memory = {
+            interval = 10;
+            format = " {percentage}%";
+            states.warning = 85;
+            on-click-middle = "alacritty -e htop";
+          };
+          cpu = {
+            interval = 1;
+            format = " {usage}%";
+            on-click-middle = "alacritty -e htop";
+          };
+          battery = {
+            states = {
+              warning = "25";
+              critical = "10";
+            };
+            format = "{icon} {capacity}%";
+            format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+            format-charging = "󰂄 {capacity}%";
+          };
+          network = {
+            interval = 10;
+            format-wifi = " {essid}";
+            format-ethernet = "󰈀 {ifname} ({ipaddr})";
+            format-disconnected = "Disconnected";
+          };
+          tray = {
+            icon-size = 15;
+            spacing = 5;
+          };
+        };
+        style = builtins.readFile ./waybar.css;
+      };
+    })
+    (lib.mkIf gui.hyprland.enable {
+      programs.waybar.settings.mainBar = {
+        modules-left = ["hyprland/workspaces"];
+        "hyprland/workspaces" = {
+          active-only = false;
+          format = "{icon}";
+          format-icons = let
+            genWs = base:
+              builtins.listToAttrs (builtins.genList (i: {
+                  name = toString (i + base);
+                  value = toString (i + 1);
+                })
+                9);
+          in
+            {
+              "urgent" = "";
+              "focused" = "";
+              "default" = "";
+            }
+            // (genWs 1)
+            // (genWs 11)
+            // (genWs 21);
+        };
+      };
+      programs.waybar.style = ''
+        /* Workspaces */
+        #workspaces button {
+          padding-right: .4rem;
+          padding-left: .4rem;
+          padding-top: .1rem;
+          padding-bottom: .1rem;
+          color: @red;
+          /* border: .2px solid transparent; */
+          background: transparent;
+        }
+
+        #workspaces button.visible {
+          color: @pink;
+        }
+        #workspaces button.active {
+          color: @pink;
+        }
+
+        #workspaces button:hover {
+          /* border: .2px solid transparent; */
+          color: @rosewater;
+        }
+      '';
+    })
+    (lib.mkIf gui.river.enable {
+      programs.waybar.settings.mainBar.modules-left = ["river/tags"];
       programs.waybar.style = ''
         /* Tags */
         #tags button {
@@ -47,278 +168,18 @@ in {
         }
 
         #tags button.occupied {
-          color: @red;
+          color: @pink;
         }
         #tags button.focused {
           font-weight: bold;
-          color: @green;
+          color: @rosewater;
         }
 
         #tags button:hover {
           /* border: .2px solid transparent; */
-          color: @red;
+          color: @rosewater;
         }
       '';
-    };
+    })
+  ]
 
-    # Module configuration
-    "hyprland/workspaces" = {
-      active-only = false;
-      format = "{icon}";
-      format-icons = let
-        roman = ["1" "2" "3" "4" "5" "6" "7" "8" "9"];
-        genWs = base:
-          builtins.listToAttrs (builtins.genList (i: {
-              name = toString (i + base);
-              value = builtins.elemAt roman i;
-            })
-            9);
-      in
-        {
-          "urgent" = "";
-          "focused" = "";
-          "default" = "";
-        }
-        // (genWs 1)
-        // (genWs 11)
-        // (genWs 21);
-    };
-
-    "custom/power" = {
-      format = " ";
-      on-click = "wlogout";
-    };
-    clock = {
-      format = "{:%H:%M}";
-      tooltip = true;
-      tooltip-format = "{:%c}";
-    };
-    pulseaudio = {
-      format = "{icon} {volume}%";
-      format-muted = "muted";
-      format-icons = {
-        default = ["" "" ""];
-      };
-    };
-    disk = {
-      interval = 60;
-      format = " {used}";
-      path = "/home";
-      tooltip = true;
-      tooltip-format = "{path}: {used}/{total} = {percentage_used}%";
-      on-click = "pulsemixer --toggle-mute";
-    };
-#    mpd = {
-#      max-length = 25;
-#      format = "<span foreground='#bb9af7'></span> {title}";
-#      format-paused = " {title}";
-#      format-stopped = "<span foreground='#bb9af7'></span>";
-#      format-disconnected = "";
-#      on-click = "mpc --quiet toggle";
-#      on-click-right = "mpc ls | mpc add";
-#      on-click-middle = "kitty ncmpcpp";
-#      on-scroll-up = "mpc --quiet prev";
-#      on-scroll-down = "mpc --quiet next";
-#      smooth-scrolling-threshold = 5;
-#      tooltip-format = "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
-#    };
-    memory = {
-      interval = 10;
-      format = " {percentage}%";
-      states.warning = 85;
-    };
-    cpu = {
-      interval = 1;
-      format = " {usage}%";
-    };
-    battery = {
-      states = {
-        warning = "25";
-        critical = "10";
-      };
-      format = "{icon} {capacity}%";
-      format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-      format-charging = "󰂄 {capacity}%";
-    };
-    network = {
-      interval = 10;
-      format-wifi = " {essid}";
-      format-ethernet = "󰈀 {ifname} ({ipaddr})";
-      format-disconnected = "Disconnected";
-      on-click = "alacritty -e nmtui";
-    };
-    tray = {
-      icon-size = 15;
-      spacing = 5;
-    };
-  };
-  programs.waybar.style =
-    (builtins.readFile catppuccin)
-    + ''
-        /* Global */
-      * {
-        font-family: "JetBrainsMono NF";
-        font-size: .9rem;
-        border-radius: 1rem;
-        transition-property: background-color;
-        transition-duration: 0.5s;
-        background-color: shade(@base, 0.9);
-      }
-
-      @keyframes blink_red {
-        to {
-          background-color: @red;
-          color: @base;
-        }
-      }
-
-      .warning, .critical, .urgent {
-        animation-name: blink_red;
-        animation-duration: 1s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-      }
-
-      #mode, #clock, #memory, #temperature, #cpu, #custom-weather,
-      #mpd, #idle_inhibitor, #backlight, #pulseaudio, #network,
-      #battery, #custom-powermenu, #custom-cava-internal,
-      #custom-launcher, #tray, #disk, #custom-pacman, #custom-scratchpad-indicator {
-        padding-left: .6rem;
-        padding-right: .6rem;
-      }
-
-      /* Bar */
-      window#waybar {
-        background-color: transparent;
-      }
-
-      window > box {
-        background-color: transparent;
-        margin: .3rem;
-        margin-bottom: 0;
-      }
-
-
-      /* Workspaces */
-      #workspaces:hover {
-        background-color: @green;
-      }
-
-      #workspaces button {
-        padding-right: .4rem;
-        padding-left: .4rem;
-        padding-top: .1rem;
-        padding-bottom: .1rem;
-        color: @red;
-        /* border: .2px solid transparent; */
-        background: transparent;
-      }
-
-      #workspaces button.focused {
-        color: @blue;
-      }
-
-      #workspaces button.active {
-	color: @green;
-      }
-
-      #workspaces button:hover {
-        /* border: .2px solid transparent; */
-        color: @rosewater;
-      }
-
-      /* Tooltip */
-      tooltip {
-        background-color: @base;
-      }
-
-      tooltip label {
-        color: @rosewater;
-      }
-
-      /* battery */
-      #battery {
-        color: @mauve;
-      }
-      #battery.full {
-        color: @green;
-      }
-      #battery.charging{
-        color: @teal;
-      }
-      #battery.discharging {
-        color: @peach;
-      }
-      #battery.critical:not(.charging) {
-        color: @pink;
-      }
-      #custom-powermenu {
-        color: @red;
-      }
-
-      /* mpd */
-      #mpd.paused {
-        color: @pink;
-        font-style: italic;
-      }
-      #mpd.stopped {
-        color: @rosewater;
-        /* background: transparent; */
-      }
-      #mpd {
-        color: @lavender;
-      }
-
-      /* Extra */
-      #custom-cava-internal{
-        color: @peach;
-        padding-right: 1rem;
-      }
-      #custom-launcher {
-        color: @yellow;
-      }
-      #memory {
-        color: @peach;
-      }
-      #cpu {
-        color: @blue;
-      }
-      #clock {
-        color: @rosewater;
-      }
-      #idle_inhibitor {
-        color: @green;
-      }
-      #temperature {
-        color: @sapphire;
-      }
-      #backlight {
-        color: @green;
-      }
-      #pulseaudio {
-        color: @mauve;  /* not active */
-      }
-      #custom-power {
-        color: @red;
-      }
-      #network {
-        color: @pink; /* not active */
-      }
-      #network.disconnected {
-        color: @foreground;  /* not active */
-      }
-      #disk {
-        color: @maroon;
-      }
-      #custom-pacman{
-        color: @sky;
-      }
-      #custom-scratchpad-indicator {
-        color: @yellow
-      }
-      #custom-weather {
-        color: @red;
-      }
-    '';
-}
