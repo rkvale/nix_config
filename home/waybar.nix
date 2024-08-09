@@ -17,7 +17,8 @@ in {
   programs.waybar.settings.mainBar = {
     layer = "top";
     # Layout
-    modules-left = ["hyprland/workspaces"];
+    #modules-left = ["hyprland/workspaces"];
+    modules-left = ["river/tags"];
     modules-center = ["clock"];
     modules-right =
        [
@@ -54,6 +55,7 @@ in {
         // (genWs 11)
         // (genWs 21);
     };
+
     "custom/power" = {
       format = " ";
       on-click = "wlogout";
