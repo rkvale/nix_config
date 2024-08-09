@@ -47,16 +47,16 @@ in {
         }
 
         #tags button.occupied {
-          color: @pink;
+          color: @red;
         }
         #tags button.focused {
           font-weight: bold;
-          color: @rosewater;
+          color: @green;
         }
 
         #tags button:hover {
           /* border: .2px solid transparent; */
-          color: @rosewater;
+          color: @red;
         }
       '';
     };
