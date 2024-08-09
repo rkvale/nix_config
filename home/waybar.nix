@@ -33,6 +33,34 @@ in {
         "custom/power"
       ];
 
+    "river/tags" ={
+      programs.waybar.style = ''
+        /* Tags */
+        #tags button {
+          padding-right: .4rem;
+          padding-left: .4rem;
+          padding-top: .1rem;
+          padding-bottom: .1rem;
+          color: @red;
+          /* border: .2px solid transparent; */
+          background: transparent;
+        }
+
+        #tags button.occupied {
+          color: @pink;
+        }
+        #tags button.focused {
+          font-weight: bold;
+          color: @rosewater;
+        }
+
+        #tags button:hover {
+          /* border: .2px solid transparent; */
+          color: @rosewater;
+        }
+      '';
+    };
+
     # Module configuration
     "hyprland/workspaces" = {
       active-only = false;
