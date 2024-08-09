@@ -156,7 +156,7 @@
             "-app-id WebCord tags ${builtins.elemAt tagMasks 9}"
             "-app-id steam tags ${builtins.elemAt tagMasks 8}"
             "-app-id firefox tags ${builtins.elemAt tagMasks 3}"
-            "-app-id signal tags ${builtins.elemAt tagMasks 4}"
+            "-app-id signal tags 4"
           ];
         }
 
