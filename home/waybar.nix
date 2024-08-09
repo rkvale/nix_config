@@ -104,7 +104,7 @@ in
         style = builtins.readFile ./waybar.css;
       };
     })
-    (lib.mkIf gui.hyprland.enable {
+    #(lib.mkIf gui.hyprland.enable {
       programs.waybar.settings.mainBar = {
         modules-left = ["hyprland/workspaces"];
         "hyprland/workspaces" = {
@@ -152,7 +152,7 @@ in
           color: @rosewater;
         }
       '';
-    })
+    # })
     (lib.mkIf gui.river.enable {
       programs.waybar.settings.mainBar.modules-left = ["river/tags"];
       programs.waybar.style = ''
