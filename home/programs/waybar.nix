@@ -18,7 +18,7 @@ in {
     layer = "top";
     # Layout
     #modules-left = ["hyprland/workspaces"];
-    modules-left = ["river/tags"];
+    #modules-left = ["river/tags"];
     modules-center = ["clock"];
     modules-right =
        [

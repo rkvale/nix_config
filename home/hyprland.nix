@@ -11,7 +11,7 @@ in {
 #    ./common/gui.nix
 #    ./common/wayland.nix
 #
-    ./waybar.nix
+    ./programs/waybar.nix
     ./programs/zathura.nix
 #
 #    ./hyprland/theme-catppuccin-mocha.nix
