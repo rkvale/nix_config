@@ -8,6 +8,8 @@
     ./programs/alacritty.nix
     ./programs/river.nix
     ./programs/kitty.nix
+    ./programs/waybar.nix
+    ./programs/zathura.nix
   ];
 
   # Home Manager needs a bit of information about you and the
