@@ -93,7 +93,7 @@
           #
           # Input devices.
           #
-          set-repeat = "60 200"; # 60Hz after 200ms
+          set-repeat = "60 300"; # 60Hz after 200ms
 
           input."'pointer-*'" = {
             accel-profile = "flat"; # mouse acceleration disabled
