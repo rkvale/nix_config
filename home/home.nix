@@ -145,11 +145,12 @@
     #pkgs.waylogout
     pkgs.wlogout
     pkgs.virtio-win
+    pkgs.taskwarrior3
     #pkgs.virt-manager
     #pkgs.citrix_workspace
     # pkgs.cups
   ];
-  programs.taskwarrior.enable = true; 
+  #programs.taskwarrior.enable = true; 
   #programs.tofi.enable = true;
   #programs.system-config-printer.enable = true;  
   #services.printing.enable = true;
