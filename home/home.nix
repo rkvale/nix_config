@@ -145,7 +145,7 @@
     #pkgs.waylogout
     pkgs.wlogout
     pkgs.virtio-win
-    pkgs.taskwarrior3
+    #pkgs.taskwarrior3
     #pkgs.virt-manager
     #pkgs.citrix_workspace
     # pkgs.cups
