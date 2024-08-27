@@ -145,6 +145,7 @@
     #pkgs.waylogout
     pkgs.wlogout
     pkgs.virtio-win
+    pkgs.remmina
     #pkgs.taskwarrior3
     #pkgs.virt-manager
     #pkgs.citrix_workspace
