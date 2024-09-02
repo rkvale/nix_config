@@ -153,7 +153,10 @@
           #
           rule-add = [
             "ssd"
-            "-app-id WebCord tags ${builtins.elemAt tagMasks 9}"
+            "-app-id Signal tags ${builtins.elemAt tagMasks 3}"
+            "-app-id Slack tags ${builtins.elemAt tagMasks 3}"
+            "-app-id 1Password tags ${builtins.elemAt tagMasks 4}"
+            "-app-id bruno tags ${builtins.elemAt tagMasks 5}"
             "-app-id steam tags ${builtins.elemAt tagMasks 8}"
           ];
         }
