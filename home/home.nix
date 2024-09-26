@@ -135,6 +135,7 @@
     pkgs.insomnia
     pkgs.postman
     pkgs.signal-desktop
+    pkgs.reveal-md
     pkgs.element-desktop
     # pkgs.swaybg
     pkgs.protonmail-desktop
