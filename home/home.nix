@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hyprland.nix
+    #./hyprland.nix
     ./programs/swww.nix
     ./programs/neovim.nix
     ./programs/alacritty.nix
