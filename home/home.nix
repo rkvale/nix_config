@@ -132,8 +132,8 @@
     pkgs.zip
     pkgs.p7zip
     pkgs.brightnessctl
-    pkgs.insomnia
-    pkgs.postman
+    #pkgs.insomnia
+    #pkgs.postman
     pkgs.signal-desktop
     pkgs.reveal-md
     pkgs.element-desktop
@@ -141,7 +141,7 @@
     pkgs.protonmail-desktop
     pkgs.tofi
     #pkgs.zulu
-    pkgs.libreoffice-fresh
+    #pkgs.libreoffice-fresh    #add this again
     #pkgs.wleave
     #pkgs.waylogout
     pkgs.wlogout

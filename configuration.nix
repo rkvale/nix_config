@@ -164,7 +164,7 @@
     #waybar
     #starship
     #git
-    chromium
+    #chromium   #add this again
     pulsemixer
    # protonmail-desktop
   #  wget
