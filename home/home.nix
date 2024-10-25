@@ -108,7 +108,7 @@
   
   home.packages = [
     pkgs.go
-    pkgs.bruno
+    #pkgs.bruno
     pkgs.gcc
     pkgs.tidal-hifi
     pkgs.nh                 # for å rydde litt i nixos :-)

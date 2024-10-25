@@ -57,8 +57,8 @@ in {
     alejandra
 
     # Other
-    (cargo-dist.override {inherit rustPlatform;})
-    (cargo-edit.override {inherit rustPlatform;})
-    (cargo-expand.override {inherit rustPlatform;})
+    #(cargo-dist.override {inherit rustPlatform;})
+    #(cargo-edit.override {inherit rustPlatform;})
+    #(cargo-expand.override {inherit rustPlatform;})
   ];
 }

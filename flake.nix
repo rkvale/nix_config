@@ -6,8 +6,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    #hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    #hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
     fenix = {
       url = "github:nix-community/fenix";
@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = inputs @ {self, hyprland, nixpkgs, home-manager, ...}: {
+  outputs = inputs @ {self, nixpkgs, home-manager, ...}: {
     # BYTT "nixos" TIL DIN HOSTNAME HVIS DU HAR ENDRET DET.
     nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
