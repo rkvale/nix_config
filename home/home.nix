@@ -1,5 +1,4 @@
-{ inputs, config, pkgs, ... }:
-
+{  inputs, config, pkgs, ...}: 
 {
   imports = [
     #./hyprland.nix
@@ -27,7 +26,7 @@
     recursive = true;
   };
 
-# programs.fish.shellAliases.nrs = "nh os switch ~/Documents/nix_config";
+  # programs.fish.shellAliases.nrs = "nh os switch ~/Documents/nix_config";
 
   home.keyboard.layout = "no";
 
@@ -44,7 +43,7 @@
 
   programs.git = {
     enable = true;
-    userName  = "rkvale";
+    userName = "rkvale";
     userEmail = "rune@kvale.io";
     extraConfig.url."ssh://git@github.com:managenordic/".insteadOf = "https://github.com/managenordic/";
   };
@@ -105,16 +104,16 @@
 
   # Let Home Manager install and manage itself.
   #programs.home-manager.enable = true;
-  
+
   home.packages = [
     pkgs.go
-    #pkgs.bruno
+    pkgs.bruno
     pkgs.gcc
     pkgs.tidal-hifi
-    pkgs.nh                 # for å rydde litt i nixos :-)
-    pkgs.swappy 		# editere bilder
+    pkgs.nh # for å rydde litt i nixos :-)
+    pkgs.swappy # editere bilder
     #pkgs.zathura             	# command line pdf viewer
-    pkgs.jq                  	# json prettyfier
+    pkgs.jq # json prettyfier
     pkgs.texliveFull
     pkgs.hyprlock
     pkgs.hypridle
@@ -123,7 +122,7 @@
     pkgs.grim
     pkgs.slurp
     pkgs.obsidian
-    pkgs.geeqie             #image viewer
+    pkgs.geeqie #image viewer
     pkgs.swappy
     #pkgs.hyprshot
     pkgs.openfortivpn
@@ -152,15 +151,15 @@
     #pkgs.citrix_workspace
     # pkgs.cups
   ];
-  #programs.taskwarrior.enable = true; 
+  #programs.taskwarrior.enable = true;
   #programs.tofi.enable = true;
-  #programs.system-config-printer.enable = true;  
+  #programs.system-config-printer.enable = true;
   #services.printing.enable = true;
   #programs.alacritty.enable = true;
   # programs.alacritty.settings =
   #   {
   #     ipc_socket = false;
-      # window = {
+  # window = {
   #       padding.x = 2;
   #       padding.y = 0;
   #       decorations = "None";
@@ -169,5 +168,4 @@
   #     font.normal.family = "JetBrainsMono NF";
   #     font.size = 12.75;
   # };
-
 }
