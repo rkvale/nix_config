@@ -14,10 +14,11 @@
   # Dependencies.
   #
   programs = {
-    hyprlock.enable = true; # screen lock
+    # hyprlock.enable = true; # screen lock
     kitty.enable = true; # terminal
     tofi.enable = true; # menu
     waybar.enable = true; # status bar
+
   };
   services = {
     mako.enable = true; # notifications
@@ -26,7 +27,7 @@
     #udiskie.enable = false; # automatic mounting
   };
 
-  home.packages = with pkgs; [acpilight imv wl-clipboard wlr-randr];
+  home.packages = with pkgs; [acpilight imv wl-clipboard wlr-randr waylock];
 
   xdg.portal = {
     enable = true;
@@ -172,7 +173,8 @@
             "Super P" = "riverctl spawn \"$(tofi-drun)\"";
 
             # Same as Hyprland, this is temporary until I find something else.
-            "Super+Shift L" = "hyprlock";
+            #"Super+Shift L" = "hyprlock";
+            "Super+Shift L" = "waylock -ignore-empty-password -init-color 0x112c52 -input-color 0x1c135c -fail-color 0x5c131d";
 
             # Stuff
             "$scrotcmd" = "slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";

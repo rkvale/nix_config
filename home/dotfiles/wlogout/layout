@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "hyprlock",
+    "action" : "waylock -ignore-empty-password -init-color 0x112c52 -input-color 0x1c135c -fail-color 0x5c131d",
     "text" : "Lock",
     "keybind" : "l"
 }

@@ -31,16 +31,16 @@
   home.keyboard.layout = "no";
 
   #hyprlock config file
-  home.file.".config/hypr/hyprlock.conf" = {
-    source = ./dotfiles/hypr/hyprlock.conf;
+  # home.file.".config/hypr/hyprlock.conf" = {
+    # source = ./dotfiles/hypr/hyprlock.conf;
     #recursive = true;
     #executable = true;
-  };
+  # };
 
   services.swww = {
     enable = true;
   };
-
+ 
   programs.git = {
     enable = true;
     userName = "rkvale";
@@ -115,7 +115,7 @@
     #pkgs.zathura             	# command line pdf viewer
     pkgs.jq # json prettyfier
     pkgs.texliveFull
-    pkgs.hyprlock
+    #pkgs.hyprlock
     pkgs.hypridle
     #pkgs.hyprpaper
     #pkgs.flameshot

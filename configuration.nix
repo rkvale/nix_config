@@ -94,6 +94,8 @@
     #jack.enable = true;
   };
 
+  # trenger denne for at waylock skal kunne unlocke  
+  security.pam.services.waylock = {};
 
   # Some Hyprland stuff
   #hardware.opengl.enable = true;
