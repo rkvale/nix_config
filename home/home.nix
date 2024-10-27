@@ -50,11 +50,12 @@
 
   programs.starship = {
     enable = true;
+    # settings = pkgs.lib.importTOML starship.toml;
     enableTransience = true;
     settings = {
       character.success_symbol = "[➜](bold green)";
       hostname.format = "[$hostname]($style) in ";
-      username.format = "[$user]($style) @ ";
+      username.format = "[$user]($style) @";
       nix_shell = {
         format = "[$state$symbol]($style) ";
         symbol = "❄️";
