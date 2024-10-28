@@ -25,7 +25,6 @@
     source = ./dotfiles/wlogout;
     recursive = true;
   };
-
   # programs.fish.shellAliases.nrs = "nh os switch ~/Documents/nix_config";
 
   home.keyboard.layout = "no";
@@ -47,14 +46,30 @@
     userEmail = "rune@kvale.io";
     extraConfig.url."ssh://git@github.com:managenordic/".insteadOf = "https://github.com/managenordic/";
   };
-
+  programs.fish = {
+    enable = true;
+    functions = {
+      fish_greeting.body = "";
+      starship_transient_prompt_func.body = "starship module character";
+    };
+  };
   programs.starship = {
     enable = true;
     # settings = pkgs.lib.importTOML starship.toml;
     enableTransience = true;
     settings = {
-      character.success_symbol = "[➜](bold green)";
-      character.error_symbol = "[✖](bold red)";
+      username = {
+        show_always = true;
+        #style_user = "bg:#9A348E";
+        #style_root = "bg:#9A348E";
+        #format = "[$user ]($style)";
+        format = "[$user]($style)@";
+        disabled = false;
+      };
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[✖](bold red)";
+      };
       cmd_duration = {
         format = "took [$duration]($style) ";
         style = "bold yellow";
@@ -62,7 +77,6 @@
       };
 
       hostname.format = "[$hostname]($style) in ";
-      username.format = "[$user]($style) @";
       nix_shell = {
         format = "[$state$symbol]($style) ";
         symbol = "❄️";
@@ -70,6 +84,29 @@
         pure_msg = "pure ";
         impure_msg = "";
       };
+
+      battery = {
+        full_symbol = "🔋 ";
+        charging_symbol = "⚡️ ";
+        discharging_symbol = "💀 ";
+      };  
+      git_status = {
+        format = "$all_status$ahead_behind ";
+        ahead = "[⬆](bold purple) ";
+        behind = "[⬇](bold purple) ";
+        staged = "[✚](green) ";
+        deleted = "[✖](red) ";
+        renamed = "[➜](purple) ";
+        stashed = "[✭](cyan) ";
+        untracked = "[◼](white) ";
+        modified = "[✱](blue)";
+        conflicted = "[═](yellow)";
+        diverged = "⇕ ";
+        up_to_date = "";
+      };
+
+
+
     };
   };
 
@@ -149,7 +186,7 @@
     pkgs.protonmail-desktop
     pkgs.tofi
     #pkgs.zulu
-    #pkgs.libreoffice-fresh    #add this again
+    pkgs.libreoffice-fresh    #add this again
     #pkgs.wleave
     #pkgs.waylogout
     pkgs.wlogout
