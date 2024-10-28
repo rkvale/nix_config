@@ -54,11 +54,19 @@
     enableTransience = true;
     settings = {
       character.success_symbol = "[➜](bold green)";
+      character.error_symbol = "[✖](bold red)";
+      cmd_duration = {
+        format = "took [$duration]($style) ";
+        style = "bold yellow";
+        disabled = false;
+      };
+
       hostname.format = "[$hostname]($style) in ";
       username.format = "[$user]($style) @";
       nix_shell = {
         format = "[$state$symbol]($style) ";
         symbol = "❄️";
+        #symbol = "❄️";
         pure_msg = "pure ";
         impure_msg = "";
       };
