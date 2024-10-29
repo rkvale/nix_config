@@ -167,6 +167,7 @@
     #starship
     #git
     chromium   #add this again
+    graphviz
     pulsemixer
    # protonmail-desktop
   #  wget
