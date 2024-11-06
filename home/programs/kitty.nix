@@ -7,6 +7,7 @@ in {
       confirm_os_window_close = 0;
       enable_audio_bell = false;
       window_padding_width = "0 2";
+      background_opacity = 0.5;
 
       input_delay = 0;
       repaint_delay = 6;
