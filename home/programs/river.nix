@@ -22,8 +22,8 @@
   };
   services = {
     mako.enable = true; # notifications
-    # swww.enable = true; # wallpapers
-    #swww.defaultImage = ../assets/wallpaper.png;
+    swww.enable = true; # wallpapers
+    swww.defaultImage = ../../wallpapers/lake.jpg;
     #udiskie.enable = false; # automatic mounting
   };
 
