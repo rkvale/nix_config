@@ -107,6 +107,7 @@ in {
       format-icons = {
         default = ["" "" ""];
       };
+      on-click = "kitty -e pulsemixer";
     };
     disk = {
       interval = 60;
