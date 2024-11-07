@@ -169,6 +169,7 @@
     chromium   #add this again
     graphviz
     pulsemixer
+    ltunify #for å pair unifying receiver
    # protonmail-desktop
   #  wget
   ];
