@@ -36,7 +36,7 @@ in {
     "river/tags" ={
       programs.waybar.style = ''
         /* Tags */
-        tags button {
+        #tags button {
           padding-right: .4rem;
           padding-left: .4rem;
           padding-top: .1rem;
@@ -46,15 +46,15 @@ in {
           background: transparent;
         }
 
-        tags button.occupied {
+        #tags button.occupied {
           color: @red;
         }
-        tags button.focused {
+        #tags button.focused {
           font-weight: bold;
           color: @green;
         }
 
-        tags button:hover {
+        #tags button:hover {
           /* border: .2px solid transparent; */
           color: @red;
         }
