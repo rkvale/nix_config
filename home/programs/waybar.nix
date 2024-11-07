@@ -58,6 +58,14 @@ in {
           /* border: .2px solid transparent; */
           color: @red;
         }
+        #layout {
+          padding-right: .4rem;
+          padding-left: .4rem;
+          padding-top: .1rem;
+          padding-bottom: .1rem;
+          color: @red;
+          background: transparent;
+      }
       '';
     };
 
