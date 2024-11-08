@@ -1,0 +1,131 @@
+/* Global */
+* {
+  font-family: "JetBrainsMono NF";
+  font-size: 0.9rem;
+  border-radius: 1rem;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  background-color: shade(@base, 0.9);
+}
+
+@keyframes blink_red {
+  to {
+    color: @yellow;
+  }
+}
+
+.warning,
+.critical,
+.urgent {
+  animation-name: blink_red;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#backlight,
+#battery,
+#clock,
+#cpu,
+#disk,
+#idle_inhibitor,
+#memory,
+#mode,
+#mpd,
+#network,
+#temperature,
+#tray,
+#wireplumber {
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+/* Bar */
+window#waybar {
+  background-color: transparent;
+}
+
+window > box {
+  background-color: transparent;
+  margin: 0.3rem;
+  margin-bottom: 0;
+}
+
+/* Tooltip */
+tooltip {
+  background-color: @base;
+}
+
+tooltip label {
+  color: @rosewater;
+}
+
+/* battery */
+#battery {
+  color: @mauve;
+}
+#battery.full {
+  color: @green;
+}
+#battery.charging {
+  color: @teal;
+}
+#battery.discharging {
+  color: @peach;
+}
+#battery.critical:not(.charging) {
+  color: @pink;
+}
+
+/* mpd */
+#mpd.paused {
+  color: @pink;
+  font-style: italic;
+}
+#mpd.stopped {
+  color: @rosewater;
+  /* background: transparent; */
+}
+#mpd {
+  color: @lavender;
+}
+
+/* Extra */
+#memory {
+  color: @peach;
+}
+#cpu {
+  color: @blue;
+}
+#clock {
+  color: @rosewater;
+}
+#idle_inhibitor {
+  color: @green;
+}
+#temperature {
+  color: @sapphire;
+}
+#temperature.critical {
+  color: @red;
+}
+#backlight {
+  color: @green;
+}
+#wireplumber {
+  color: @mauve; /* not active */
+}
+#wireplumber.muted {
+  color: @red;
+}
+#network {
+  color: @pink; /* not active */
+}
+#network.disconnected {
+  color: @foreground; /* not active */
+}
+#disk {
+  color: @maroon;
+}
+
