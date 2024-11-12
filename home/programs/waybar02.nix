@@ -4,7 +4,7 @@
   ...
 }: let
   style = builtins.concatStringsSep "\n" (
-    [(builtins.readFile ./waybar.css)]
+    [(builtins.readFile ./programs/waybar.css)]
      ''
       /* Tags */
       #tags button {
