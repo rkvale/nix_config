@@ -4,8 +4,8 @@
   ...
 }: let
   style = builtins.concatStringsSep "\n" (
-    [(builtins.readFile ./programs/waybar.css)]
-     ''
+        [(builtins.readFile ./waybar.css)]
+     ++ lib.optional true ''
       /* Tags */
       #tags button {
         padding-right: .4rem;
@@ -50,7 +50,7 @@ in
           modules-center = ["clock"];
           modules-right =
             (
-              if config.gk.roles.music.enable
+              if false #config.gk.roles.music.enable
               then ["mpd"]
               else []
             )
