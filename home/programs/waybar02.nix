@@ -132,6 +132,7 @@ in
             format-wifi = " {essid}";
             format-ethernet = "󰈀 {ifname} ({ipaddr})";
             format-disconnected = "Disconnected";
+            on-click = "alacritty -e nmtui";
           };
           tray = {
             icon-size = 15;
