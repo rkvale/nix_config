@@ -22,8 +22,7 @@
       }
       #tags button.focused {
         font-weight: bold;
-        #color: @rosewater;
-        color: @green
+        color: @green;
       }
 
       #tags button:hover {
