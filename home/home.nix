@@ -153,6 +153,8 @@
   #programs.home-manager.enable = true;
 
   home.packages = [
+    pkgs.wireguard-tools
+    pkgs.wireguard-ui
     pkgs.go
     pkgs.bruno
     pkgs.gcc
