@@ -155,6 +155,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wl-clipboard
+    wireguard-tools
     firefox
     #librewolf
     _1password
