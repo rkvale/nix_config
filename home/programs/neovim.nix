@@ -21,7 +21,7 @@
     fenix.latest.miri
 
     # And of course ...
-    fenix.rust-analyzer
+    #fenix.rust-analyzer
   ];
 in {
   programs = {
