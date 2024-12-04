@@ -192,9 +192,9 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-    nerd-fonts.FiraCode
-    nerd-fonts.DroidSansMono
-    nerd-fonts.Iosevka
+    # nerd-fonts.FiraCode
+    # nerd-fonts.DroidSansMono
+    # nerd-fonts.Iosevka
   ];
    #  fonts.packages = with pkgs; [
    #    (nerd-fonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" "Iosevka"]; })
