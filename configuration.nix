@@ -191,7 +191,7 @@
 
 
   fonts.packages = with pkgs; [
-    nerd-fonts.JetBrainsMono
+    nerd-fonts.jetbrains-mono
     nerd-fonts.FiraCode
     nerd-fonts.DroidSansMono
     nerd-fonts.Iosevka
