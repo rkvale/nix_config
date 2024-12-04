@@ -189,10 +189,16 @@
     shell = pkgs.fish;
   };
 
-    fonts.packages = with pkgs; [
-      (nerd-fonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" "Iosevka"]; })
-    #(nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" "Iosevka"]; })
-   ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.JetBrainsMono
+    nerd-fonts.FiraCode
+    nerd-fonts.DroidSansMono
+    nerd-fonts.Iosevka
+  ];
+   #  fonts.packages = with pkgs; [
+   #    (nerd-fonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" "Iosevka"]; })
+   # ];
 
   programs.neovim = {
     enable = true;
