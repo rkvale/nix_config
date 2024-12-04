@@ -2,27 +2,27 @@
 # This has just become a catch-all for development tools at this point.
 #
 {pkgs, ...}: let
-  fenix = pkgs.inputs.fenix;
-  rustPlatform = let
-    x = fenix.stable.withComponents ["rustc" "cargo"];
-  in
-    pkgs.makeRustPlatform {
-      rustc = x;
-      cargo = x;
-    };
-  rust = fenix.combine [
-    (fenix.latest.withComponents [
-      "rustc"
-      "cargo"
-      "clippy"
-      "rustfmt"
-      "rust-src"
-    ])
-    fenix.latest.miri
-
-    # And of course ...
-    #fenix.rust-analyzer
-  ];
+  #  fenix = pkgs.inputs.fenix;
+  # rustPlatform = let
+  #   x = fenix.stable.withComponents ["rustc" "cargo"];
+  # in
+  #   pkgs.makeRustPlatform {
+  #     rustc = x;
+  #     cargo = x;
+  #   };
+  # rust = fenix.combine [
+  #   (fenix.latest.withComponents [
+  #     "rustc"
+  #     "cargo"
+  #     "clippy"
+  #     "rustfmt"
+  #     "rust-src"
+  #   ])
+  #   fenix.latest.miri
+  #
+  #   # And of course ...
+  #   fenix.rust-analyzer
+  # ];
 in {
   programs = {
     neovim.enable = true;
@@ -43,7 +43,7 @@ in {
     gcc
     gnumake
     go
-    rust
+    # rust
     mold
 
     # Language servers
