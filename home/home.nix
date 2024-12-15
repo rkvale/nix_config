@@ -154,6 +154,7 @@
 
   home.packages = [
     #ddpkgs.wireguard-tools
+    pkgs.typst
     pkgs.go
     pkgs.bruno
     pkgs.gcc
