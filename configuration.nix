@@ -76,7 +76,7 @@
   nixpkgs.config.allowUnfree = true;
   
   programs.thunar.enable = true;
-  programs._1password.enable = true;
+  programs._1password-cli.enable = true;
   programs._1password-gui = {
     enable = true;
     # Certain features, including CLI integration and system authentication support,
@@ -113,7 +113,7 @@
   services.printing.enable = true;
 
     # Enable WireGuard
-  networking.wireguard.enable = true;
+  networking.wireguard.enable = false;
   networking.wireguard.interfaces = {
     # "wg0" is the network interface name. You can name the interface arbitrarily.
     wg0 = {
@@ -126,8 +126,8 @@
       # Note: The private key can also be included inline via the privateKey option,
       # but this makes the private key world-readable; thus, using privateKeyFile is
       # recommended.
-      privateKey = "kIBGFU0BxkqFLgGzAnui9rUSIz6CzzkV+coikTkK8mk=";
-      # privateKeyFile = "path to private key file";
+      # privateKey = "";
+      privateKeyFile = "/home/runek/.config/wireguard/private.key";
 
       peers = [
         # For a client configuration, one peer entry for the server will suffice.
@@ -196,7 +196,6 @@
     # wireguard-tools
     firefox
     #librewolf
-    _1password
     mako
     #fish
     #alacritty
@@ -204,6 +203,7 @@
     #wofi
     slack
     #zulu
+    _1password-cli
     #libreoffice-qt
     poppler_utils  #pdf utils 
     #waybar
