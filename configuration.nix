@@ -214,7 +214,7 @@
     graphviz
     pulsemixer
     ltunify #for å pair unifying receiver
-   # protonmail-desktop
+    protonmail-desktop
   #  wget
   ];
 

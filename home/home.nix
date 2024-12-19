@@ -186,7 +186,7 @@
     pkgs.reveal-md
     pkgs.element-desktop
     # pkgs.swaybg
-    pkgs.protonmail-desktop
+    # pkgs.protonmail-desktop
     pkgs.tofi
     #pkgs.zulu
     pkgs.libreoffice-fresh    #add this again
