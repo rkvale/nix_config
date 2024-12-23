@@ -152,49 +152,50 @@
   # Let Home Manager install and manage itself.
   #programs.home-manager.enable = true;
 
-  home.packages = [
+  home.packages = with pkgs; [
     #ddpkgs.wireguard-tools
-    pkgs.typst
-    pkgs.go
-    pkgs.bruno
-    pkgs.gcc
-    pkgs.tidal-hifi
-    pkgs.nh # for å rydde litt i nixos :-)
-    pkgs.swappy # editere bilder
-    #pkgs.zathura             	# command line pdf viewer
-    pkgs.jq # json prettyfier
-    pkgs.texliveFull
-    #pkgs.hyprlock
-    pkgs.hypridle
-    #pkgs.hyprpaper
-    #pkgs.flameshot
-    pkgs.grim
-    pkgs.slurp
-    pkgs.obsidian
-    pkgs.geeqie #image viewer
-    pkgs.swappy
-    #pkgs.hyprshot
-    pkgs.openfortivpn
-    pkgs.dnsutils
-    pkgs.unzip
-    pkgs.zip
-    pkgs.p7zip
-    pkgs.brightnessctl
-    #pkgs.insomnia
-    #pkgs.postman
-    pkgs.signal-desktop
-    pkgs.reveal-md
-    pkgs.element-desktop
-    # pkgs.swaybg
-    # pkgs.protonmail-desktop
-    pkgs.tofi
-    #pkgs.zulu
-    pkgs.libreoffice-fresh    #add this again
-    #pkgs.wleave
-    #pkgs.waylogout
-    pkgs.wlogout
-    pkgs.virtio-win
-    pkgs.remmina
+    typst
+    rage
+    go
+    bruno
+    gcc
+    tidal-hifi
+    nh # for å rydde litt i nixos :-)
+    swappy # editere bilder
+    #zathura             	# command line pdf viewer
+    jq # json prettyfier
+    texliveFull
+    #hyprlock
+    hypridle
+    #hyprpaper
+    #flameshot
+    grim
+    slurp
+    obsidian
+    geeqie #image viewer
+    swappy
+    #hyprshot
+    openfortivpn
+    dnsutils
+    unzip
+    zip
+    p7zip
+    brightnessctl
+    #insomnia
+    #postman
+    signal-desktop
+    reveal-md
+    element-desktop
+    # swaybg
+    # protonmail-desktop
+    tofi
+    #zulu
+    libreoffice-fresh    #add this again
+    #wleave
+    #waylogout
+    wlogout
+    virtio-win
+    remmina
     #pkgs.taskwarrior3
     #pkgs.virt-manager
     #pkgs.citrix_workspace
