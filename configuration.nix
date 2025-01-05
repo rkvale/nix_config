@@ -87,7 +87,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryPackage = lib.mkForce pkgs.pinentry-qt;
+    pinentryPackage = lib.mkForce pkgs.pinentry-curses;
   };
 
 
@@ -223,7 +223,6 @@
     ltunify #for å pair unifying receiver
     protonmail-desktop
   #  wget
-    pinentry-all
     gnupg
   ];
 
