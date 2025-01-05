@@ -87,7 +87,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryFlavor = "curses";
+    pinentryPackage = lib.mkForce pkgs.pinentry-qt;
   };
 
 
