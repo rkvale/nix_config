@@ -216,6 +216,8 @@
     ltunify #for å pair unifying receiver
     protonmail-desktop
   #  wget
+    pinentry-all
+    gnupg
   ];
 
 

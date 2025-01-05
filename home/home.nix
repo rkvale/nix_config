@@ -156,6 +156,7 @@
     #ddpkgs.wireguard-tools
     typst
     rage
+    sops
     go
     bruno
     gcc
