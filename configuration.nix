@@ -84,6 +84,13 @@
     # polkitPolicyOwners = [ "yourUsernameHere" ];
   };
 
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryFlavor = "curses";
+  };
+
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
