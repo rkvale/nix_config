@@ -1,15 +1,20 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, lib, config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./vm.nix
-    ];
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./vm.nix
+
+    inputs.sops-nix.nixosModules.default
+  ];
 
   # roflolmapcopter
   nixpkgs.overlays = [
@@ -24,6 +29,9 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  sops.secrets.test = {};
+  environment.etc.test.text = config.sops.secrets.test.path;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -62,19 +70,18 @@
     updater.enable = true;
   };
 
- nix = {
-  package = lib.mkDefault pkgs.nixVersions.latest;
- };
+  nix = {
+    package = lib.mkDefault pkgs.nixVersions.latest;
+  };
 
   # adding flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Configure console keymap
   console.keyMap = "no";
-  
+
   nixpkgs.config.allowUnfree = true;
-  
+
   programs.thunar.enable = true;
   programs._1password.enable = true;
   programs._1password-gui = {
@@ -90,7 +97,6 @@
     pinentryPackage = lib.mkForce pkgs.pinentry-curses;
   };
 
-
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -101,75 +107,75 @@
     #jack.enable = true;
   };
 
-  # trenger denne for at waylock skal kunne unlocke  
+  # trenger denne for at waylock skal kunne unlocke
   security.pam.services.waylock = {};
 
   # Some Hyprland stuff
   #hardware.opengl.enable = true;
   hardware.graphics.enable = true;
- 
+
   programs.thunar.plugins = with pkgs.xfce; [
     thunar-archive-plugin
     thunar-volman
   ];
-  
-  virtualisation.libvirtd.enable = true;  
+
+  virtualisation.libvirtd.enable = true;
   programs.xfconf.enable = true;
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
   services.printing.enable = true;
 
   networking.wg-quick.interfaces.wg0.configFile = "/home/runek/.config/wireguard/wg0.conf";
-    # Enable WireGuard
-#   networking.wireguard.enable = true;
-#   networking.wireguard.interfaces = {
-#     # "wg0" is the network interface name. You can name the interface arbitrarily.
-#     wg0 = {
-#       # Determines the IP address and subnet of the client's end of the tunnel interface.
-#      ips = [ "10.0.0.22/32" ];
-#       listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
-#
-#       # Path to the private key file.
-#       #
-#       # Note: The private key can also be included inline via the privateKey option,
-#       # but this makes the private key world-readable; thus, using privateKeyFile is
-#       # recommended.
-#       # privateKey = "";
-#       privateKeyFile = "/home/runek/.config/wireguard/private.key";
-#
-#       peers = [
-#         # For a client configuration, one peer entry for the server will suffice.
-#
-#         {
-#           # Public key of the server (not a file path).
-#           publicKey = "rDnFQoUfoisyH+HvIHiiQjeIcGPbXO2ufgYQAhBfKH8=";
-#
-#           # Forward all the traffic via VPN.
-#           allowedIPs = [ "0.0.0.0/0" ];
-#           # Or forward only particular subnets
-#           #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
-#
-#           # Set this to the server IP and port.
-#           endpoint = "wireguard.kvale.io:51820"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
-#
-#           # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-#           persistentKeepalive = 25;
-#         }
-#       ];
-#     };
-#   };
-#
-# #  programs.waybar = {
-# #    enable = true;
-# #    package = pkgs.waybar;
-# #  };
- 
+  # Enable WireGuard
+  #   networking.wireguard.enable = true;
+  #   networking.wireguard.interfaces = {
+  #     # "wg0" is the network interface name. You can name the interface arbitrarily.
+  #     wg0 = {
+  #       # Determines the IP address and subnet of the client's end of the tunnel interface.
+  #      ips = [ "10.0.0.22/32" ];
+  #       listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
+  #
+  #       # Path to the private key file.
+  #       #
+  #       # Note: The private key can also be included inline via the privateKey option,
+  #       # but this makes the private key world-readable; thus, using privateKeyFile is
+  #       # recommended.
+  #       # privateKey = "";
+  #       privateKeyFile = "/home/runek/.config/wireguard/private.key";
+  #
+  #       peers = [
+  #         # For a client configuration, one peer entry for the server will suffice.
+  #
+  #         {
+  #           # Public key of the server (not a file path).
+  #           publicKey = "rDnFQoUfoisyH+HvIHiiQjeIcGPbXO2ufgYQAhBfKH8=";
+  #
+  #           # Forward all the traffic via VPN.
+  #           allowedIPs = [ "0.0.0.0/0" ];
+  #           # Or forward only particular subnets
+  #           #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
+  #
+  #           # Set this to the server IP and port.
+  #           endpoint = "wireguard.kvale.io:51820"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+  #
+  #           # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+  #           persistentKeepalive = 25;
+  #         }
+  #       ];
+  #     };
+  #   };
+  #
+  # #  programs.waybar = {
+  # #    enable = true;
+  # #    package = pkgs.waybar;
+  # #  };
+
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
-  
+
   programs.fish.enable = true;
 
   programs.ssh = {
@@ -179,23 +185,22 @@
       "aes128-gcm@openssh.com"
     ];
     kexAlgorithms = [
-     "sntrup761x25519-sha512@openssh.com"
-     "curve25519-sha256@libssh.org"
+      "sntrup761x25519-sha512@openssh.com"
+      "curve25519-sha256@libssh.org"
     ];
     macs = [
-     "hmac-sha2-512-etm@openssh.com"
-     "hmac-sha2-256-etm@openssh.com"
+      "hmac-sha2-512-etm@openssh.com"
+      "hmac-sha2-256-etm@openssh.com"
     ];
   };
 
-#  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-#   "1password-gui"
-#    "1password"
-#  ];
+  #  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+  #   "1password-gui"
+  #    "1password"
+  #  ];
 
- #Tailscale 
+  #Tailscale
   # services.tailscale.enable = true;
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -213,29 +218,27 @@
     #zulu
     _1password-cli
     #libreoffice-qt
-    poppler_utils  #pdf utils 
+    poppler_utils #pdf utils
     #waybar
     #starship
     #git
-    chromium   #add this again
+    chromium #add this again
     graphviz
     pulsemixer
     ltunify #for å pair unifying receiver
     protonmail-desktop
-  #  wget
+    #  wget
     gnupg
   ];
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.runek = {
     isNormalUser = true;
     description = "Rune Kvale";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = ["networkmanager" "wheel" "libvirtd"];
     packages = with pkgs; [];
     shell = pkgs.fish;
   };
-
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -243,9 +246,9 @@
     # nerd-fonts.DroidSansMono
     # nerd-fonts.Iosevka
   ];
-   #  fonts.packages = with pkgs; [
-   #    (nerd-fonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" "Iosevka"]; })
-   # ];
+  #  fonts.packages = with pkgs; [
+  #    (nerd-fonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" "Iosevka"]; })
+  # ];
 
   programs.neovim = {
     enable = true;
@@ -253,6 +256,9 @@
     viAlias = true;
     vimAlias = true;
   };
+
+  sops.defaultSopsFile = ./secrets.yml;
+  sops.age.keyFile = "/var/lib/sops/key";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -280,5 +286,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }

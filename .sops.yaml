@@ -1,8 +1,9 @@
 keys:
-  - &rune age1ds07e4tfv4e0s2mlqvamys49sktu3pl3lyfewf0jp3p42ey4y3rs3up8g8
+  - &rune ECB0BFADD67F510503672D8AA22733919C497E19
+  - &laptop age1wcpvuecelfyecsmjra753k83702xd5tqwkz8yq3kj76ac26zucjsq9t005
 
-  
 creation_rules:
   - path_regex: ^secrets.yml$
     key_groups:
-    - age: [*rune]
+    - age: [*laptop]
+      pgp: [*rune]
