@@ -206,6 +206,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     helix
+    scrcpy
     wl-clipboard
     # wireguard-tools
     firefox
