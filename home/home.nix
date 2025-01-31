@@ -10,6 +10,7 @@
     ./programs/waybar02.nix
     #./programs/waybar.nix
     ./programs/zathura.nix
+    ./programs/helix.nix
   ];
 
   # Home Manager needs a bit of information about you and the

@@ -206,7 +206,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     swappy
-    helix
+    #helix
     scrcpy
     wl-clipboard
     # wireguard-tools
