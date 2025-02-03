@@ -30,7 +30,6 @@
   # programs.fish.shellAliases.nrs = "nh os switch ~/Documents/nix_config";
 
   home.keyboard.layout = "no";
-  home-manager.backupFileExtension = "backup";
   
   #hyprlock config file
   # home.file.".config/hypr/hyprlock.conf" = {
