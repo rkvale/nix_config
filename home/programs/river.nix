@@ -172,6 +172,7 @@
             "Super Return" = "kitty --single-instance --instance-group river";
             "Super P" = "riverctl spawn \"$(tofi-drun)\"";
             "Super N" = "kitty --single-instance --instance-group river -e nvim";
+            "Super E" = "kitty --single-instance --instance-group river -e hx";
 
             # Same as Hyprland, this is temporary until I find something else.
             #"Super+Shift L" = "hyprlock";
