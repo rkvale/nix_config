@@ -125,6 +125,11 @@
   services.tumbler.enable = true; # Thumbnail support for images
   services.printing.enable = true;
 
+  services.greetd = {
+      enable = false;
+            settings.default_session.command = "${lib.getExe pkgs.greetd.tuigreet} -t -g 'Access restricted to authorized personnel only.' --remember --remember-user-session --session-wrapper 'fish --login -c'";
+  };
+
   networking.wg-quick.interfaces.wg0.configFile = "/home/runek/.config/wireguard/wg0.conf";
   # Enable WireGuard
   #   networking.wireguard.enable = true;

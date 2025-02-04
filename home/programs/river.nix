@@ -81,7 +81,8 @@
             # what, user units are kinda broken when using multiple window managers
             # anyway cause they overwrite each other's dbus activation environment.
             "waybar"
-
+            "slack"
+            "1password"
             # Workaround that forwards the clipboard from X11 to Wayland.
             "wl-paste -w ${lib.getExe pkgs.xclip} -selection clipboard"
           ];
@@ -154,11 +155,9 @@
           #
           rule-add = [
             "ssd"
-            "-app-id Signal tags ${builtins.elemAt tagMasks 3}"
             "-app-id Slack tags ${builtins.elemAt tagMasks 3}"
             "-app-id 1Password tags ${builtins.elemAt tagMasks 4}"
             "-app-id bruno tags ${builtins.elemAt tagMasks 5}"
-            "-app-id steam tags ${builtins.elemAt tagMasks 8}"
           ];
         }
 
@@ -171,8 +170,7 @@
             # subject to punishment by death penalty + life in prison, in that order.
             "Super Return" = "kitty --single-instance --instance-group river";
             "Super P" = "riverctl spawn \"$(tofi-drun)\"";
-            "Super N" = "kitty --single-instance --instance-group river -e nvim";
-            "Super E" = "kitty --single-instance --instance-group river -e hx";
+            "Super N" = "kitty --single-instance --instance-group river -e hx";
 
             # Same as Hyprland, this is temporary until I find something else.
             #"Super+Shift L" = "hyprlock";

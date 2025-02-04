@@ -10,7 +10,7 @@ programs.helix = {
      {
         name = "json";
         formatter = {
-          command = "jaq";
+          command = "jq";
           args = [ "." ];
         };
       }
