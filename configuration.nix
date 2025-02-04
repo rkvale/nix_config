@@ -126,7 +126,7 @@
   services.printing.enable = true;
 
   services.greetd = {
-      enable = false;
+      enable = true;
             settings.default_session.command = "${lib.getExe pkgs.greetd.tuigreet} -t -g 'Access restricted to authorized personnel only.' --remember --remember-user-session --session-wrapper 'fish --login -c'";
   };
 
