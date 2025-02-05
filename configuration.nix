@@ -59,9 +59,10 @@
   };
 
   # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "no";
-    xkb.variant = "";
+  services.xserver.xkb = {
+    layout = "no";
+    variant = "";
+    options = "caps:swapescape";
   };
 
   #antivirus
@@ -126,7 +127,7 @@
   services.printing.enable = true;
 
   services.greetd = {
-      enable = true;
+      enable = false;
             settings.default_session.command = "${lib.getExe pkgs.greetd.tuigreet} -t -g 'Access restricted to authorized personnel only.' --remember --remember-user-session --session-wrapper 'fish --login -c'";
   };
 
