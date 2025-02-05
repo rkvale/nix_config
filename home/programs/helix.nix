@@ -5,6 +5,11 @@
 }:
 {
 programs.helix = {
+  settings ={
+    keys.normal = {
+      "C-f" = ":format";
+    };   
+  };
   enable = true;
   languages.language = [
      {

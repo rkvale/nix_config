@@ -29,7 +29,6 @@
   };
   # programs.fish.shellAliases.nrs = "nh os switch ~/Documents/nix_config";
 
-  home.keyboard.layout = "no";
   
   #hyprlock config file
   # home.file.".config/hypr/hyprlock.conf" = {
@@ -42,6 +41,13 @@
     enable = true;
   };
  
+  home.keyboard = {
+   layout = "no";
+      options = [
+        "caps:swapescape"
+      ];
+    };
+
   programs.git = {
     enable = true;
     userName = "rkvale";
