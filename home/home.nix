@@ -171,7 +171,7 @@
     nh # for å rydde litt i nixos :-)
     swappy # editere bilder
     #zathura             	# command line pdf viewer
-    jq # json prettyfier
+    #jq # json prettyfier
     texliveFull
     #hyprlock
     hypridle

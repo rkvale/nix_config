@@ -22,7 +22,7 @@ programs.helix = {
      {
         name = "json";
         formatter = {
-              command = "jq";
+              command = "jaq";
           args = [ "." ];
         };
       }
