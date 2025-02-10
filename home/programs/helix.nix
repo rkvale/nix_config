@@ -13,16 +13,23 @@ programs.helix = {
   enable = true;
   languages.language = [
      {
+        name = "nix";
+        formatter = {
+          command = "nixfmt";
+          args = [ "-s" ];
+        };
+      }
+     {
         name = "json";
         formatter = {
-          command = "jq";
+              command = "jq";
           args = [ "." ];
         };
       }
   ];
 };
-  
-}
+  .
+}.
 
 
 
