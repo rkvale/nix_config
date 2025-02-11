@@ -212,6 +212,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vscode-langservers-extracted
+    blueman
     jaq
     swappy
     #helix
