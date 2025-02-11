@@ -20,6 +20,10 @@
 
   boot.initrd.luks.devices."luks-48b13b69-111f-4b9b-bedd-422ed70b9a9d".device = "/dev/disk/by-uuid/48b13b69-111f-4b9b-bedd-422ed70b9a9d";
 
+  hardware = {
+    bluetooth.enable = true;
+  };
+  
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/83F7-DC07";
       fsType = "vfat";
