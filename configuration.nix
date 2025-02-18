@@ -241,9 +241,7 @@
     protonmail-desktop
     #  wget
     gnupg
-    discord
-    steam
-  ];
+ ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.runek = {
