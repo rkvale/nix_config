@@ -6,7 +6,7 @@
     ./programs/neovim.nix
     ./programs/alacritty.nix
     ./programs/river.nix
-    ./programs/kitty.nix
+#    ./programs/kitty.nix
     ./programs/waybar02.nix
     #./programs/waybar.nix
     ./programs/zathura.nix
