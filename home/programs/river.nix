@@ -177,10 +177,10 @@
             "Super+Shift L" = "waylock -ignore-empty-password -init-color 0x112c52 -input-color 0x1c135c -fail-color 0x5c131d";
 
             # Stuff
-            "$scrotcmd" = "slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
+            #"$scrotcmd" = "slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
             # "Super+Shift S" = lib.getExe pkgs.inputs.self.snipping-tool;
-            # "Super+Shift S" = "slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') |wl-copy -t image/png";
-            "Super+Shift S" = "exec grim -g \"$(slurp)\" -t png - | wl-copy -t image/png";
+            "Super+Shift S" = "slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
+            #"Super+Shift S" = "exec grim -g \"$(slurp)\" -t png - | wl-copy -t image/png";
             "Super+Shift D" = "makoctl dismiss -a";
 
             #"None Pause" = lib.getExe pkgs.inputs.self.toggle-mute;
