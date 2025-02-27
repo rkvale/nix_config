@@ -20,6 +20,14 @@
   };
 
   outputs = inputs @ {self, hyprland, nixpkgs, home-manager, ...}: {
+  # f = inputs:
+  # let
+  #   inherit (inputs) self hyprland nixpkgs home-manager;
+  # in
+  # {
+  #   inherit self hyprland nixpkgs home-manager;
+  # };
+
     # BYTT "nixos" TIL DIN HOSTNAME HVIS DU HAR ENDRET DET.
     nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
