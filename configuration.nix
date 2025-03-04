@@ -131,7 +131,7 @@
             settings.default_session.command = "${lib.getExe pkgs.greetd.tuigreet} -t -g 'Access restricted to authorized personnel only.' --remember --remember-user-session --session-wrapper 'fish --login -c'";
   };
 
-  networking.wg-quick.interfaces.wg0.configFile = "/home/runek/.config/wireguard/wg0.conf";
+  # networking.wg-quick.interfaces.wg0.configFile = "/home/runek/.config/wireguard/wg0.conf";
   # Enable WireGuard
   #   networking.wireguard.enable = true;
   #   networking.wireguard.interfaces = {
