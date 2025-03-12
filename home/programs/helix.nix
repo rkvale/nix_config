@@ -5,6 +5,7 @@
 }:
 {
 programs.helix = {
+  defaultEditor = true;
   settings ={
     keys.normal = {
       "C-f" = ":format";

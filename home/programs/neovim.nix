@@ -26,7 +26,7 @@
 in {
   programs = {
     neovim.enable = true;
-    neovim.defaultEditor = true;
+    neovim.defaultEditor = false;
     fzf.enable = true;
     go.enable = true;
     ripgrep.enable = true;

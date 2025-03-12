@@ -219,8 +219,10 @@
     scrcpy
     wl-clipboard
     # wireguard-tools
+    # kanskje fjerne firefox 
     firefox
-    #librewolf
+    librewolf
+    mullvad-browser
     mako
     #fish
     #alacritty
