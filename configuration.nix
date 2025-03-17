@@ -71,6 +71,10 @@
     updater.enable = true;
   };
 
+  #fingerprint reader
+  services.fprintd.enable = true;
+
+  
   nix = {
     package = lib.mkDefault pkgs.nixVersions.latest;
   };
@@ -198,6 +202,13 @@
       "hmac-sha2-512-etm@openssh.com"
       "hmac-sha2-256-etm@openssh.com"
     ];
+    
+    #må ha med dette for Kitty skal fungere som den skal i ssh sessjoner  
+    # extraConfig = ''
+    #   SetEnv TERM=xterm-256color;
+    # '';
+  
+   
   };
 
   #  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
