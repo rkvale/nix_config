@@ -99,7 +99,7 @@
 
           input."'pointer-*'" = {
             accel-profile = "flat"; # mouse acceleration disabled
-            pointer-accel = "-0.5"; # "half" mouse sensitivity
+            pointer-accel = "0.5"; # "half" mouse sensitivity
           };
           input."'pointer-1739-52745-SYNA30D3:00_06CB:CE09'" = {
             pointer-accel = "0";

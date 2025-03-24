@@ -72,7 +72,7 @@
   };
 
   #fingerprint reader
-  services.fprintd.enable = true;
+  # services.fprintd.enable = true;
 
   
   nix = {
@@ -254,6 +254,8 @@
     protonmail-desktop
     #  wget
     gnupg
+    sqlite
+    sqlpage
  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
