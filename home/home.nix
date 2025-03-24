@@ -191,6 +191,7 @@
     brightnessctl
     #insomnia
     #postman
+    # signal desktop
     signal-desktop
     reveal-md
     element-desktop
