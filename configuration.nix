@@ -256,6 +256,8 @@
     gnupg
     sqlite
     sqlpage
+    zoxide
+    zellij
  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

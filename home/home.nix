@@ -48,11 +48,22 @@
       ];
     };
 
+  programs.zoxide = {
+    enable = true;
+    options = [
+      "--cmd"
+      "cd"
+    ];
+  };
+
   programs.git = {
     enable = true;
     userName = "rkvale";
     userEmail = "rune@kvale.io";
-    extraConfig.url."ssh://git@github.com:managenordic/".insteadOf = "https://github.com/managenordic/";
+    extraConfig = {
+      pull.rebase = true;
+      url."ssh://git@github.com:managenordic/".insteadOf = "https://github.com/managenordic/";
+    };
   };
   programs.fish = {
     enable = true;
