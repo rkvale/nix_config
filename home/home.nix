@@ -69,7 +69,7 @@
   programs.fish = {
     enable = true;
     functions = {
-      fish_greeting.body = "wazzup";
+      fish_greeting.body = "";
       starship_transient_prompt_func.body = "starship module character";
     };
     shellAliases ={
