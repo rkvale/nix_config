@@ -49,6 +49,7 @@
     };
 
   programs.zoxide = {
+    enableFishIntegration = true;
     enable = true;
     options = [
       "--cmd"
@@ -68,8 +69,17 @@
   programs.fish = {
     enable = true;
     functions = {
-      fish_greeting.body = "";
+      fish_greeting.body = "wazzup";
       starship_transient_prompt_func.body = "starship module character";
+      shellAliases ={
+        ltr = "ls -ltr";
+        la = "ls -A";
+
+        # Git
+        ga = "git add -A";
+        gm = "git commit -m";
+        
+      };
     };
   };
   programs.starship = {
