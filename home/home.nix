@@ -71,17 +71,17 @@
     functions = {
       fish_greeting.body = "wazzup";
       starship_transient_prompt_func.body = "starship module character";
-      shellAliases ={
+    };
+    shellAliases ={
         ltr = "ls -ltr";
         la = "ls -A";
 
         # Git
         ga = "git add -A";
-        gm = "git commit -m";
-        
-      };
+        gm = "git commit -m";      
     };
   };
+
   programs.starship = {
     enable = true;
     # settings = pkgs.lib.importTOML starship.toml;
