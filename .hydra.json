@@ -1,0 +1,14 @@
+{
+  "master": {
+    "enabled": 1,
+    "type": 1,
+    "hidden": false,
+    "description": "Build master branch",
+    "flake": "github:rkvale/nix_config",
+    "checkInterval": 60,
+    "schedulingShares": 10,
+    "enableemail": false,
+    "emailoverride": "",
+    "keepnr": 2
+  }
+}

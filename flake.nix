@@ -20,7 +20,11 @@
      };
   };
 
-  outputs = inputs @ {self, hyprland, nixpkgs, home-manager, ...}: {
+  outputs = inputs @ {self, hyprland, nixpkgs, home-manager, ...}:
+  let
+    inherit (inputs.nixpkgs) lib;
+  in
+  {
   # f = inputs:
   # let
   #   inherit (inputs) self hyprland nixpkgs home-manager;
@@ -44,5 +48,8 @@
         }
     ];
    };
+   hydraJobs.nixosConfigurations = lib.mapAttrs (
+     _: cfg: cfg.config.system.build.toplevel
+  ) inputs.self.nixosConfigurations;
   };
 }

@@ -15,7 +15,16 @@
 
     inputs.sops-nix.nixosModules.default
   ];
-
+  nix.settings ={
+    substituters = [
+          "https://nix-community.cachix.org"
+          "https://cache.kylling.io?priority=100"
+    ];
+    trusted-public-keys = [
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+          "titan-1:5jJME9Ak4MIkgK3RHG0AwCv0c81mFcPBrlRbswkM6aI="
+    ];
+  };
   # roflolmapcopter
   nixpkgs.overlays = [
     (_: _: {
