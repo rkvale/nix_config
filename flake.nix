@@ -20,7 +20,7 @@
      };
   };
 
-  outputs = inputs @ {self, hyprland, nixpkgs, home-manager, ...}:
+  outputs = inputs @ {self, nixpkgs, home-manager, ...}:
   let
     inherit (inputs.nixpkgs) lib;
   in
