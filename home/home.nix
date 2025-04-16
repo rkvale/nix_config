@@ -193,7 +193,7 @@
     swappy # editere bilder
     #zathura             	# command line pdf viewer
     #jq # json prettyfier
-    texliveFull
+    # texliveFull
     #hyprlock
     hypridle
     #hyprpaper

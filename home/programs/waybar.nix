@@ -70,27 +70,27 @@ in {
     };
 
     # Module configuration
-    "hyprland/workspaces" = {
-      active-only = false;
-      format = "{icon}";
-      format-icons = let
-        roman = ["1" "2" "3" "4" "5" "6" "7" "8" "9"];
-        genWs = base:
-          builtins.listToAttrs (builtins.genList (i: {
-              name = toString (i + base);
-              value = builtins.elemAt roman i;
-            })
-            9);
-      in
-        {
-          "urgent" = "";
-          "focused" = "";
-          "default" = "";
-        }
-        // (genWs 1)
-        // (genWs 11)
-        // (genWs 21);
-    };
+    # "hyprland/workspaces" = {
+    #   active-only = false;
+    #   format = "{icon}";
+    #   format-icons = let
+    #     roman = ["1" "2" "3" "4" "5" "6" "7" "8" "9"];
+    #     genWs = base:
+    #       builtins.listToAttrs (builtins.genList (i: {
+    #           name = toString (i + base);
+    #           value = builtins.elemAt roman i;
+    #         })
+    #         9);
+    #   in
+    #     {
+    #       "urgent" = "";
+    #       "focused" = "";
+    #       "default" = "";
+    #     }
+    #     // (genWs 1)
+    #     // (genWs 11)
+    #     // (genWs 21);
+    # };
 
     "custom/power" = {
       format = " ";
