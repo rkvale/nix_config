@@ -249,6 +249,7 @@
     #hyprland
     #wofi
     slack
+    simplex-chat-desktop
     #zulu
     _1password-cli
     #libreoffice-qt
