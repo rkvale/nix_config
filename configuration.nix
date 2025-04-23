@@ -250,6 +250,7 @@
     #wofi
     slack
     simplex-chat-desktop
+    session-desktop
     #zulu
     _1password-cli
     #libreoffice-qt
