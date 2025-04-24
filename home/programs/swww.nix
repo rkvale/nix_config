@@ -1,46 +1,24 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: let
+{ lib, config, ... }:
+let
+  inherit (lib) mkOption types;
   cfg = config.services.swww;
-in {
+  setBackground = "${lib.getExe cfg.package} img -t none ${cfg.defaultImage}";
+in
+{
   options.services.swww = {
-    enable = lib.mkEnableOption "swww";
-    package = lib.mkPackageOption pkgs "swww" {};
-    systemd.enable = lib.mkEnableOption "swww user service" // {default = true;};
-    systemd.targets = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = ["graphical-session.target"];
-      defaultText = lib.literalExpression ''[ "graphical-session.target" ]'';
-      example = lib.literalExpression ''[ "river-session.target" ]'';
-      description = "Specifies which systemd target that should automatically start swww.";
-    };
-    defaultImage = lib.mkOption {
-      type = lib.types.nullOr lib.types.path;
+    defaultImage = mkOption {
+      type = types.nullOr types.path;
       default = null;
-      example = lib.literalExpression "./wallpaper.png";
+      example = lib.literalExpression ''"./wallpaper.png"'';
       description = "A default wallpaper to apply using `swww img` after starting the daemon.";
     };
   };
   config = lib.mkIf cfg.enable {
-    home.packages = [cfg.package];
-    systemd.user.services.swww = lib.mkIf cfg.systemd.enable {
-      Unit = {
-        Description = "A Solution to your Wayland Wallpaper Woes";
-        PartOf = ["graphical-session.target"];
-        After = [
-          "graphical-session-pre.target"
-        ];
-      };
+    systemd.user.services.swww = {
       Service = {
         Type = "notify";
-        ExecStart = "${cfg.package}/bin/swww-daemon";
-        ExecStartPost = lib.mkIf (cfg.defaultImage != null) "${cfg.package}/bin/swww img ${cfg.defaultImage}";
+        ExecStartPost = lib.mkIf (cfg.defaultImage != null) setBackground;
       };
-      Install.WantedBy = cfg.systemd.targets;
     };
   };
 }
-
