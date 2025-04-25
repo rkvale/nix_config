@@ -49,6 +49,13 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.nftables.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 46725 ];
+    allowedUDPPorts = [ 46725 ];
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
