@@ -21,6 +21,13 @@ programs.helix = {
         };
       }
      {
+        name = "typst";
+        formatter = {
+          command = "typstfmt";
+          args = [ "." ];
+        };
+      }
+     {
         name = "json";
         formatter = {
               command = "jaq";
