@@ -242,7 +242,6 @@
     blueman
     jaq
     typstfmt #typst formatter for Helix
-    Prettier #markdown formatter for Helix
     swappy
     #helix
     scrcpy
