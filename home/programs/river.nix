@@ -38,28 +38,49 @@
     config.river.default = ["wlr" "gtk"];
   };
 
+  home.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "river";
+
+    GDK_BACKEND = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+    SDL_VIDEODRIVER = "wayland";
+    CLUTTER_BACKEND = "wayland";
+
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+  };
   #
   # Configuration.
   #
   wayland.windowManager.river = {
     # DOES NOT WORK AND IDK WHY
-    extraSessionVariables = {
-      XDG_CURRENT_DESKTOP = "river";
+    # extraSessionVariables = {
+    #   XDG_CURRENT_DESKTOP = "river";
 
-      GDK_BACKEND = "wayland";
-      QT_QPA_PLATFORM = "wayland";
-      SDL_VIDEODRIVER = "wayland";
-      CLUTTER_BACKEND = "wayland";
+    #   GDK_BACKEND = "wayland";
+    #   QT_QPA_PLATFORM = "wayland";
+    #   SDL_VIDEODRIVER = "wayland";
+    #   CLUTTER_BACKEND = "wayland";
 
-      QT_QPA_PLATFORMTHEME = "qt5ct";
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    };
+    #   QT_QPA_PLATFORMTHEME = "qt5ct";
+    #   QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    # };
 
     # Putting it in extraConfig writes it at the end of the file.
     extraConfig = ''
       riverctl default-layout rivertile
       riverctl spawn rivertile
     '';
+
+   systemd.variables = [
+      "DISPLAY"
+      "WAYLAND_DISPLAY"
+      "XDG_CURRENT_DESKTOP"
+      "NIXOS_OZONE_WL"
+      "XCURSOR_THEME"
+      "XCURSOR_SIZE"
+      "PATH" # Makes xdg-desktop-portal work correctly
+    ];
 
     settings = let
       pow = b: n:
