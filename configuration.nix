@@ -102,6 +102,7 @@
   console.keyMap = "no";
 
   nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnsupportedSystem = true;
 
   programs.thunar.enable = true;
   programs._1password.enable = true;
