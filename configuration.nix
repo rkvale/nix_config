@@ -103,7 +103,7 @@
 
   nixpkgs.config.allowUnfree = true;
   # nixpkgs.config.allowUnsupportedSystem = true;
-
+  programs.river.enable = true;
   programs.thunar.enable = true;
   programs._1password.enable = true;
   programs._1password-gui = {
