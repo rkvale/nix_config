@@ -49,7 +49,7 @@
     ];
    };
    hydraJobs.nixosConfigurations = lib.mapAttrs (
-   # _: cfg: cfg.config.system.build.toplevel
+   _: cfg: cfg.config.system.build.toplevel
   ) inputs.self.nixosConfigurations;
   };
 }
