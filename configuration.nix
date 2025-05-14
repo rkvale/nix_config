@@ -258,7 +258,7 @@
     #hyprland
     #wofi
     slack
-    simplex-chat-desktop
+    # simplex-chat-desktop
     session-desktop
     #zulu
     _1password-cli

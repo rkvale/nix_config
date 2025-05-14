@@ -217,7 +217,7 @@
     reveal-md
     element-desktop
     # swaybg
-    # protonmail-desktop
+    protonmail-desktop
     tofi
     #zulu
     libreoffice-fresh    #add this again
