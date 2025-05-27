@@ -182,6 +182,27 @@
 
   home.packages = with pkgs; [
     #ddpkgs.wireguard-tools
+     (
+      let
+        fenix = inputs.fenix.packages.x86_64-linux;
+      in
+      fenix.combine [
+        (fenix.stable.withComponents [
+          "rustc"
+          "rust-std"
+          "rust-src"
+          "rust-docs"
+
+          "cargo"
+          "clippy"
+
+          "llvm-tools"
+         ])
+       fenix.latest.rustfmt
+       fenix.rust-analyzer
+      ]
+    )
+  
     typst
     rage
     sops
