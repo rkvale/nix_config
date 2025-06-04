@@ -207,13 +207,14 @@
     rage
     sops
     go
-    bruno
     gcc
     tidal-hifi
     nh # for å rydde litt i nixos :-)
     swappy # editere bilder
     #zathura             	# command line pdf viewer
-    #jq # json prettyfier
+    jq # json prettyfier
+    moreutils
+    bruno
     # texliveFull
     #hyprlock
     hypridle

@@ -246,6 +246,9 @@
     swappy
     #helix
     scrcpy
+    # moreutils
+    # jq
+    # bruno
     wl-clipboard
     # wireguard-tools
     # kanskje fjerne firefox 
