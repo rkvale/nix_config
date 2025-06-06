@@ -55,7 +55,19 @@
     allowedTCPPorts = [ 46725 ];
     allowedUDPPorts = [ 46725 ];
   };
-
+  networking.useDHCP = false;
+  networking.bridges."br0".interfaces = ["enp4s0f4u1u4"];
+  networking.interfaces."br0".useDHCP = true;
+  networking.interfaces."enp4s0f4u1u4".useDHCP = false;
+  # networking ={
+  #   interfaces.br0.useDHCP = true;
+  #   bridges ={
+  #     br0 = {
+  #       interfaces = ["enp4s0f4u1u4"];
+  #     };
+  #   }; 
+  # };
+  
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
@@ -261,7 +273,7 @@
     #hyprland
     #wofi
     slack
-    # simplex-chat-desktop
+    simplex-chat-desktop
     session-desktop
     #zulu
     _1password-cli

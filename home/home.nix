@@ -214,7 +214,7 @@
     #zathura             	# command line pdf viewer
     jq # json prettyfier
     moreutils
-    bruno
+    # bruno
     # texliveFull
     #hyprlock
     hypridle
