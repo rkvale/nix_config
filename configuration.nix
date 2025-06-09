@@ -46,6 +46,12 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  #docker testing
+  virtualisation.docker.enable = true;
+
+
+
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -58,7 +64,7 @@
   networking.useDHCP = false;
   networking.bridges."br0".interfaces = ["enp4s0f4u1u4"];
   networking.interfaces."br0".useDHCP = true;
-  networking.interfaces."enp4s0f4u1u4".useDHCP = false;
+  networking.interfaces."enp4s0f4u1u4".useDHCP = true;
   # networking ={
   #   interfaces.br0.useDHCP = true;
   #   bridges ={
@@ -301,7 +307,7 @@
   users.users.runek = {
     isNormalUser = true;
     description = "Rune Kvale";
-    extraGroups = ["networkmanager" "wheel" "libvirtd"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "docker"];
     packages = with pkgs; [];
     shell = pkgs.fish;
   };
