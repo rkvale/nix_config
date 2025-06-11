@@ -239,9 +239,9 @@
     ];
     
     #må ha med dette for Kitty skal fungere som den skal i ssh sessjoner  
-    # extraConfig = ''
-    #   SetEnv TERM=xterm-256color;
-    # '';
+    extraConfig = ''
+      SetEnv TERM=xterm-256color;
+    '';
   
    
   };
