@@ -295,7 +295,7 @@
     protonmail-desktop
     #  wget
     gnupg
-    sqlite
+    sqlite-interactive
     sqlpage
     zoxide
     zellij
