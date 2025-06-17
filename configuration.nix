@@ -61,10 +61,13 @@
     allowedTCPPorts = [ 46725 ];
     allowedUDPPorts = [ 46725 ];
   };
-  networking.useDHCP = false;
-  networking.bridges."br0".interfaces = ["enp4s0f4u1u4"];
-  networking.interfaces."br0".useDHCP = true;
-  networking.interfaces."enp4s0f4u1u4".useDHCP = true;
+
+  # denne setter opp br0 men får ikke brukt enp4s0f4u1u4
+  # networking.useDHCP = false;
+  # networking.bridges."br0".interfaces = ["enp4s0f4u1u4"];
+  # networking.interfaces."br0".useDHCP = true;
+  # networking.interfaces."enp4s0f4u1u4".useDHCP = true;
+
   # networking ={
   #   interfaces.br0.useDHCP = true;
   #   bridges ={
