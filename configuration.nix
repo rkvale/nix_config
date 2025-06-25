@@ -50,8 +50,6 @@
   virtualisation.docker.enable = true;
 
 
-
-
   # Enable networking
   networking.networkmanager.enable = true;
 
