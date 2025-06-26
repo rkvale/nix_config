@@ -190,7 +190,8 @@
           map.normal = builtins.mapAttrs (_: command: "spawn '${command}'") {
             # Essential shortcuts, tampering with these in any way is sacrilege and
             # subject to punishment by death penalty + life in prison, in that order.
-            "Super Return" = "kitty --single-instance --instance-group river";
+            # "Super Return" = "kitty --single-instance --instance-group river";
+            "Super Return" = "foot";
             "Super P" = "riverctl spawn \"$(tofi-drun)\"";
             "Super E" = "kitty --single-instance --instance-group river -e hx";
 

@@ -132,6 +132,16 @@
     # polkitPolicyOwners = [ "yourUsernameHere" ];
   };
 
+  programs.foot = {
+    enable = true;
+    settings = {
+      main = {
+        font = "JetBrainsMono NF:size=12.75,DejaVu Sans Mono:size=12.75,Unifont:size=12.75";
+        pad = "4x0";
+      };
+    };
+  };
+  
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
