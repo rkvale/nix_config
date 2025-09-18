@@ -249,6 +249,7 @@
     virtio-win
     remmina
     pkgs.taskwarrior3
+    wl-clipboard
     #pkgs.virt-manager
     #pkgs.citrix_workspace
     # pkgs.cups
