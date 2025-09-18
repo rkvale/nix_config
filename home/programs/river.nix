@@ -187,7 +187,7 @@
         # Spawn bindings
         #
         {
-          map.normal = builtins.mapAttrs (_: command: "spawn '${command}'") {
+          map.normal = builtins.mapAttrs (_: command: "spawn '${command} &>/dev/null'") {
             # Essential shortcuts, tampering with these in any way is sacrilege and
             # subject to punishment by death penalty + life in prison, in that order.
             # "Super Return" = "kitty --single-instance --instance-group river";
@@ -202,7 +202,9 @@
             # Stuff
             #"$scrotcmd" = "slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
             # "Super+Shift S" = lib.getExe pkgs.inputs.self.snipping-tool;
-            "Super+Shift S" = "wayfreeze --after-freeze-cmd \"grim -g \"\$(slurp -d)\" - | tee \"/home/runek/Screenshots/\$(date +%s).png\" | wl-copy -t image/png; pkill wayfreeze";
+            # "Super+Shift S" = "wayfreeze --after-freeze-cmd \"grim -g \"\$(slurp -d)\" - | tee \"/home/runek/Screenshots/\$(date +%s).png\" | wl-copy -t image/png; pkill wayfreeze";
+            # "Super+Shift S" = ''"wayfreeze --after-freeze-cmd \"grim -g \"\$(slurp -d)\" - | tee \"/home/runek/Screenshots/\$(date +%s).png\" | wl-copy -t image/png; pkill wayfreeze"'';
+            "Super+Shift S" = "grim -g \$(slurp -d)  - | tee ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') | wl-copy -t image/png";
             # "Super+Shift S" = "slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
             #"Super+Shift S" = "exec grim -g \"$(slurp)\" -t png - | wl-copy -t image/png";
             "Super+Shift D" = "makoctl dismiss -a";
