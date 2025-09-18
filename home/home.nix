@@ -248,7 +248,7 @@
     wlogout
     virtio-win
     remmina
-    #pkgs.taskwarrior3
+    pkgs.taskwarrior3
     #pkgs.virt-manager
     #pkgs.citrix_workspace
     # pkgs.cups
