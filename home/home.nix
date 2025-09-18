@@ -220,6 +220,7 @@
     hypridle
     #hyprpaper
     #flameshot
+    wayfreeze
     grim
     slurp
     obsidian
