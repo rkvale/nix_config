@@ -203,8 +203,9 @@
             #"$scrotcmd" = "slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
             # "Super+Shift S" = lib.getExe pkgs.inputs.self.snipping-tool;
             # "Super+Shift S" = "wayfreeze --after-freeze-cmd \"grim -g \"\$(slurp -d)\" - | tee \"/home/runek/Screenshots/\$(date +%s).png\" | wl-copy -t image/png; pkill wayfreeze";
-            # "Super+Shift S" = ''"wayfreeze --after-freeze-cmd \"grim -g \"\$(slurp -d)\" - | tee \"/home/runek/Screenshots/\$(date +%s).png\" | wl-copy -t image/png; pkill wayfreeze"'';
-            "Super+Shift S" = "grim -g \$(slurp -d)  - | tee ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') | wl-copy -t image/png";
+            # "Super+Shift S" = "wayfreeze --after-freeze-cmd 'grim -g \"\$(slurp -d)\" - | wl-copy -t image/png; pkill wayfreeze'";
+            # "Super+Shift S" = "grim -g \$(slurp -d) - | tee \"/home/runek/Screenshots/$(date +%s).png\" | wl-copy -t image/png";
+            "Super+Shift S" = ''grim -g "$(slurp -d)" - | tee ${config.home.homeDirectory}/Screenshots/$(date +%s).png | wl-copy -t image/png'';
             # "Super+Shift S" = "slurp | grim -g - ~/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
             #"Super+Shift S" = "exec grim -g \"$(slurp)\" -t png - | wl-copy -t image/png";
             "Super+Shift D" = "makoctl dismiss -a";
