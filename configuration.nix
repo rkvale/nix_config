@@ -179,7 +179,7 @@
       "10-wooaudio-wa7-gen2" = {
         "monitor.alsa.rules" = [
           {
-            matches = [ { "node.name" = "alsa_output.FIXME"; } ];
+            matches = [ { "node.name" = "alsa_output.usb-GuangZhou_FiiO_Electronics_Co._Ltd_FiiO_Q3_FA300009-00.iec958-stereo"; } ];
             actions = [
               {
                 update-props = {
