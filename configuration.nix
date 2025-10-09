@@ -156,6 +156,79 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
+        extraConfig.pipewire = {
+      "10-quantum"."context.properties" = {
+        # Lower quantums improve latency (quantum / rate = seconds) but can introduce buffer xruns,
+        # noticeable as pops or crackles. Any reasonably powerful modern personal computer should
+        # be more than capable of servicing high resolution sample rates in this range of quantums,
+        # even when under load.
+        #
+        # These settings are recommendations to clients, most clients will stay within them but
+        # some may explicitly request smaller or larger quantums, limited by `floor` and `limit`.
+        "default.clock.max-quantum" = "1024";
+        "default.clock.min-quantum" = "256";
+        # The buffer size to use when no active client (audio source) specifies one.
+        "default.clock.quantum" = "1024";
+        # Allow an application to explicitly request quantums outside the
+        # recommended range, keep the floor somewhat high to avoid xruns.
+        "default.clock.quantum-floor" = "64";
+        "default.clock.quantum-limit" = "2048";
+      };
+    };
+    wireplumber.extraConfig = {
+      "10-wooaudio-wa7-gen2" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [ { "node.name" = "alsa_output.FIXME"; } ];
+            actions = [
+              {
+                update-props = {
+                  # Important: unlocks direct output through the DAC at any of its supported
+                  # sample rates instead of unnecessarily resampling everything to 48kHz with
+                  # the default settings. PipeWire will automatically choose the highest rate
+                  # that can currently be played given all audio sources in the graph.
+                  "audio.allowed-rates" = "[ 44100 48000 88200 96000 176400 192000 352800 384000 ]";
+                };
+              }
+            ];
+          }
+        ];
+      };
+      "99-no-suspend" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [
+              { "node.name" = "~alsa_input.*"; }
+              { "node.name" = "~alsa_output.*"; }
+            ];
+            actions = [
+              {
+                update-props = {
+                  "node.pause-on-idle" = false;
+                  "session.suspend-timeout-seconds" = 0;
+                };
+              }
+            ];
+          }
+        ];
+        "monitor.bluez.rules" = [
+          {
+            matches = [
+              { "node.name" = "~bluez_input.*"; }
+              { "node.name" = "~bluez_output.*"; }
+            ];
+            actions = [
+              {
+                update-props = {
+                  "node.pause-on-idle" = false;
+                  "session.suspend-timeout-seconds" = 0;
+                };
+              }
+            ];
+          }
+        ];
+      };
+    };
   };
 
   # trenger denne for at waylock skal kunne unlocke
