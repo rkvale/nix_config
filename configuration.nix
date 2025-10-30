@@ -7,7 +7,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -15,20 +16,22 @@
 
     inputs.sops-nix.nixosModules.default
   ];
-  nix.settings ={
+  nix.settings = {
     substituters = [
-          "https://nix-community.cachix.org"
-          "https://cache.kylling.io?priority=100"
+      "https://nix-community.cachix.org"
+      "https://cache.kylling.io?priority=100"
     ];
     trusted-public-keys = [
-          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-          "titan-1:5jJME9Ak4MIkgK3RHG0AwCv0c81mFcPBrlRbswkM6aI="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "titan-1:5jJME9Ak4MIkgK3RHG0AwCv0c81mFcPBrlRbswkM6aI="
     ];
   };
   # roflolmapcopter
   nixpkgs.overlays = [
     (_: _: {
-      inputs = builtins.mapAttrs (_: input: (input.packages or inputs.legacyPackages).${pkgs.system} or {}) inputs;
+      inputs = builtins.mapAttrs (
+        _: input: (input.packages or inputs.legacyPackages).${pkgs.system} or { }
+      ) inputs;
     })
   ];
 
@@ -39,7 +42,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  sops.secrets.test = {};
+  sops.secrets.test = { };
   environment.etc.test.text = config.sops.secrets.test.path;
 
   # Configure network proxy if necessary
@@ -48,7 +51,6 @@
 
   #docker testing
   virtualisation.docker.enable = true;
-
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -72,9 +74,9 @@
   #     br0 = {
   #       interfaces = ["enp4s0f4u1u4"];
   #     };
-  #   }; 
+  #   };
   # };
-  
+
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
@@ -109,19 +111,24 @@
   #fingerprint reader
   # services.fprintd.enable = true;
 
-  
   nix = {
     package = lib.mkDefault pkgs.nixVersions.latest;
   };
 
   # adding flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Configure console keymap
   console.keyMap = "no";
 
   nixpkgs.config.allowUnfree = true;
   # nixpkgs.config.allowUnsupportedSystem = true;
+  #
+  programs.hyprlock.enable = true;
+    
   programs.river.enable = true;
   programs.thunar.enable = true;
   programs._1password.enable = true;
@@ -141,7 +148,7 @@
       };
     };
   };
-  
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -156,7 +163,7 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
-        extraConfig.pipewire = {
+    extraConfig.pipewire = {
       "10-quantum"."context.properties" = {
         # Lower quantums improve latency (quantum / rate = seconds) but can introduce buffer xruns,
         # noticeable as pops or crackles. Any reasonably powerful modern personal computer should
@@ -179,7 +186,12 @@
       "10-wooaudio-wa7-gen2" = {
         "monitor.alsa.rules" = [
           {
-            matches = [ { "node.name" = "alsa_output.usb-GuangZhou_FiiO_Electronics_Co._Ltd_FiiO_Q3_FA300009-00.iec958-stereo"; } ];
+            matches = [
+              {
+                "node.name" =
+                  "alsa_output.usb-GuangZhou_FiiO_Electronics_Co._Ltd_FiiO_Q3_FA300009-00.iec958-stereo";
+              }
+            ];
             actions = [
               {
                 update-props = {
@@ -232,7 +244,7 @@
   };
 
   # trenger denne for at waylock skal kunne unlocke
-  security.pam.services.waylock = {};
+  security.pam.services.waylock = { };
 
   # Some Hyprland stuff
   #hardware.opengl.enable = true;
@@ -250,19 +262,19 @@
   services.printing.enable = true;
 
   services.greetd = {
-      enable = false;
-            settings.default_session.command = "${lib.getExe pkgs.greetd.tuigreet} -t -g 'Access restricted to authorized personnel only.' --remember --remember-user-session --session-wrapper 'fish --login -c'";
+    enable = true;
+    settings.default_session.command = "${lib.getExe pkgs.tuigreet} -t -g 'Access restricted to authorized personnel only.' --remember --remember-user-session";
   };
 
   # networking.wg-quick.interfaces.wg0.configFile = "/home/runek/.config/wireguard/wg0.conf";
   # Enable WireGuard
-    # networking.wireguard.enable = true;
-    # networking.wireguard.interfaces = {
+  # networking.wireguard.enable = true;
+  # networking.wireguard.interfaces = {
   #     # "wg0" is the network interface name. You can name the interface arbitrarily.
-      # wg0 = {
+  # wg0 = {
   #       # Determines the IP address and subnet of the client's end of the tunnel interface.
-       # ips = [ "10.0.0.22/32" ];
-        # listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
+  # ips = [ "10.0.0.22/32" ];
+  # listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
   #
   #       # Path to the private key file.
   #       #
@@ -270,29 +282,29 @@
   #       # but this makes the private key world-readable; thus, using privateKeyFile is
   #       # recommended.
   #       # privateKey = "";
-        # privateKeyFile = "/home/runek/.config/wireguard/private.key";
+  # privateKeyFile = "/home/runek/.config/wireguard/private.key";
   #
-        # peers = [
+  # peers = [
   #         # For a client configuration, one peer entry for the server will suffice.
   #
-          # {
+  # {
   #           # Public key of the server (not a file path).
-            # publicKey = "rDnFQoUfoisyH+HvIHiiQjeIcGPbXO2ufgYQAhBfKH8=";
+  # publicKey = "rDnFQoUfoisyH+HvIHiiQjeIcGPbXO2ufgYQAhBfKH8=";
   #
   #           # Forward all the traffic via VPN.
-            # allowedIPs = [ "0.0.0.0/0" ];
+  # allowedIPs = [ "0.0.0.0/0" ];
   #           # Or forward only particular subnets
   #           #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
   #
   #           # Set this to the server IP and port.
-            # endpoint = "wireguard.kvale.io:51820"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+  # endpoint = "wireguard.kvale.io:51820"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
   #
   #           # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-            # persistentKeepalive = 25;
-          # }
-        # ];
-      # };
-    # };
+  # persistentKeepalive = 25;
+  # }
+  # ];
+  # };
+  # };
   #
   # #  programs.waybar = {
   # #    enable = true;
@@ -321,13 +333,12 @@
       "hmac-sha2-512-etm@openssh.com"
       "hmac-sha2-256-etm@openssh.com"
     ];
-    
-    #må ha med dette for Kitty skal fungere som den skal i ssh sessjoner  
+
+    #må ha med dette for Kitty skal fungere som den skal i ssh sessjoner
     extraConfig = ''
       SetEnv TERM=xterm-256color;
     '';
-  
-   
+
   };
 
   #  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -344,7 +355,7 @@
     vscode-langservers-extracted
     blueman
     jaq
-    typstfmt #typst formatter for Helix
+    typstfmt # typst formatter for Helix
     swappy
     #helix
     scrcpy
@@ -353,7 +364,7 @@
     bruno
     wl-clipboard
     # wireguard-tools
-    # kanskje fjerne firefox 
+    # kanskje fjerne firefox
     firefox
     librewolf
     mullvad-browser
@@ -368,14 +379,14 @@
     #zulu
     _1password-cli
     #libreoffice-qt
-    poppler_utils #pdf utils
+    poppler_utils # pdf utils
     #waybar
     #starship
     #git
-    chromium #add this again
+    chromium # add this again
     graphviz
     pulsemixer
-    ltunify #for å pair unifying receiver
+    ltunify # for å pair unifying receiver
     protonmail-desktop
     #  wget
     gnupg
@@ -385,15 +396,25 @@
     zellij
     csvlens
     # ente-auth
-    rclone #backup til S3
- ];
+    rclone # backup til S3
+    kanshi
+    proton-pass
+    bitwarden-desktop
+    du-dust
+    xwayland-satellite
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.runek = {
     isNormalUser = true;
     description = "Rune Kvale";
-    extraGroups = ["networkmanager" "wheel" "libvirtd" "docker"];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "docker"
+    ];
+    packages = with pkgs; [ ];
     shell = pkgs.fish;
   };
 
@@ -412,6 +433,10 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+  };
+
+  programs.niri = {
+    enable = true;
   };
 
   sops.defaultSopsFile = ./secrets.yml;

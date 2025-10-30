@@ -30,8 +30,8 @@
   home.packages = with pkgs; [acpilight imv wl-clipboard wlr-randr waylock];
 
   xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
+    # enable = true;
+    # xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
       xdg-desktop-portal-wlr

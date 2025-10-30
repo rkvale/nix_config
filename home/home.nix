@@ -6,6 +6,7 @@
     ./programs/neovim.nix
     ./programs/alacritty.nix
     ./programs/river.nix
+    ./programs/niri.nix
     ./programs/kitty.nix
     ./programs/waybar02.nix
     #./programs/waybar.nix
@@ -30,15 +31,20 @@
   # programs.fish.shellAliases.nrs = "nh os switch ~/Documents/nix_config";
 
   
-  #hyprlock config file
-  # home.file.".config/hypr/hyprlock.conf" = {
-    # source = ./dotfiles/hypr/hyprlock.conf;
-    #recursive = true;
-    #executable = true;
-  # };
+  # hyprlock config file
+   # home.file.".config/hypr/hyprlock.conf" = {
+   #  source = ./dotfiles/hypr/hyprlock.conf;
+   # recursive = true;
+   # executable = true;
+   # };
 
   services.swww = {
     enable = true;
+  };
+
+  xdg.portal =  {
+    enable = true;
+    xdgOpenUsePortal = true;
   };
  
   home.keyboard = {
@@ -66,6 +72,8 @@
       url."ssh://git@github.com:managenordic/".insteadOf = "https://github.com/managenordic/";
     };
   };
+  programs.fuzzel.enable = true;
+  
   programs.fish = {
     enable = true;
     functions = {
