@@ -201,7 +201,7 @@
   #
   programs.hyprlock.enable = true;
     
-  programs.river.enable = true;
+  programs.river-classic.enable = true;
   programs.thunar.enable = true;
   programs._1password.enable = true;
   programs._1password-gui = {
