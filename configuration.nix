@@ -9,6 +9,19 @@
   ...
 }:
 {
+
+  sops.secrets."wg0_key"  = {
+    sopsFile = ./secrets.yml;
+    group =  "systemd-network";
+    mode = "0440";
+  };
+  
+  sops.secrets."wg0_psk"  = {
+    sopsFile = ./secrets.yml;
+    group =  "systemd-network";
+    mode = "0440";
+  };
+  
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -39,7 +52,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   sops.secrets.test = { };
@@ -48,6 +61,65 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+# ********************************************************************
+  networking = {
+    hostName = "nixos"; # Define your hostname.
+    
+    nftables.enable = true;
+    firewall = {
+      enable = true;
+      # allowedTCPPorts = [ 46725 ];
+      # allowedUDPPorts = [ 46725 ];
+    };
+   
+  };
+
+  systemd.network = {
+    enable = true;
+    networks."10-nic" = {
+      matchConfig.PermanentMACAddress = "14:13:33:15:e0:29";
+      networkConfig = {
+        DHCP = "ipv4";
+        # Address = "2a01:4f9:3070:1c9e::2/64";
+
+        # IPv6AcceptRA = "no";
+        # Gateway = "fe80::1";
+
+        DNS = [
+          "192.168.1.2"
+          "1.1.1.1"
+          "1.0.0.1"
+          # "2606:4700:4700::1111"
+          # "2606:4700:4700::1001"
+        ];
+      };
+    };
+  netdevs."11-wg0" = {
+      netdevConfig = {
+        Kind = "wireguard";
+        Name = "wg0";
+      };
+      wireguardConfig = {
+        PrivateKeyFile = config.sops.secrets."wg0_key".path;
+        RouteTable = "main";
+      };
+      wireguardPeers = [
+        {
+          Endpoint = "wireguard.kvale.io:51820";
+          AllowedIPs = "10.0.0.0/24,192.168.1.0/24";
+          PublicKey = "rDnFQoUfoisyH+HvIHiiQjeIcGPbXO2ufgYQAhBfKH8=";
+          PresharedKeyFile = config.sops.secrets."wg0_psk".path;
+          PersistentKeepalive = 30;
+        }
+      ];
+    };
+    networks."11-wg0" = {
+      matchConfig.Name = "wg0";
+      networkConfig.Address = "10.0.0.3/32";
+    };
+  };
+
+# ********************************************************************
 
   #docker testing
   virtualisation.docker.enable = true;
@@ -55,12 +127,12 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  networking.nftables.enable = true;
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 46725 ];
-    allowedUDPPorts = [ 46725 ];
-  };
+  # networking.nftables.enable = true;
+  # networking.firewall = {
+  #   enable = true;
+  #   allowedTCPPorts = [ 46725 ];
+  #   allowedUDPPorts = [ 46725 ];
+  # };
 
   # denne setter opp br0 men får ikke brukt enp4s0f4u1u4
   # networking.useDHCP = false;
