@@ -455,6 +455,7 @@
     #waybar
     #starship
     git
+    jujutsu # istedenfor git - kanskje 
     chromium # add this again
     graphviz
     pulsemixer
