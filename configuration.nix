@@ -451,10 +451,10 @@
     #zulu
     _1password-cli
     #libreoffice-qt
-    poppler_utils # pdf utils
+    poppler-utils # pdf utils
     #waybar
     #starship
-    #git
+    git
     chromium # add this again
     graphviz
     pulsemixer
@@ -472,7 +472,7 @@
     kanshi
     proton-pass
     bitwarden-desktop
-    du-dust
+    dust
     xwayland-satellite
   ];
 
