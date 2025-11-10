@@ -64,18 +64,20 @@
   };
 
   programs.git.settings = {
-    user = {
-      name = "rkvale";
-      email = "rune@kvale.io";
+      user = {
+        name = "rkvale";
+        email = "rune@kvale.io";
+      };
+      enable = true;
+      # userName = "rkvale";
+      # userEmail = "rune@kvale.io";
+      extraConfig = {
+        pull.rebase = true;
+        url."ssh://git@github.com:managenordic/".insteadOf = "https://github.com/managenordic/";
+      };
     };
-    enable = true;
-    # userName = "rkvale";
-    # userEmail = "rune@kvale.io";
-    extraConfig = {
-      pull.rebase = true;
-      url."ssh://git@github.com:managenordic/".insteadOf = "https://github.com/managenordic/";
-    };
-  };
+
+  
   programs.fuzzel.enable = true;
   
   programs.fish = {
