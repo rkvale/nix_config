@@ -455,7 +455,8 @@
     #waybar
     #starship
     git
-    jujutsu # istedenfor git - kanskje 
+    jujutsu # istedenfor git - kanskje
+    wl-mirror
     chromium # add this again
     graphviz
     pulsemixer
