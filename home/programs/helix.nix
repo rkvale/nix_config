@@ -23,7 +23,8 @@ programs.helix = {
      {
         name = "typst";
         formatter = {
-          command = "typstfmt";
+          command = "typstyle";
+          # command = "typstfmt";
           args = [ "." ];
         };
       }

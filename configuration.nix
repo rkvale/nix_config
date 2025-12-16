@@ -10,18 +10,24 @@
 }:
 {
 
-  sops.secrets."wg0_key"  = {
+  sops.secrets."wg0_key" = {
     sopsFile = ./secrets.yml;
-    group =  "systemd-network";
+    group = "systemd-network";
     mode = "0440";
   };
-  
-  sops.secrets."wg0_psk"  = {
+
+  sops.secrets."wg0_psk" = {
     sopsFile = ./secrets.yml;
-    group =  "systemd-network";
+    group = "systemd-network";
     mode = "0440";
   };
-  
+
+  sops.secrets."tarsnap" = {
+    sopsFile = ./secrets.yml;
+    # group = "systemd-network";
+    # mode = "0440";
+  };
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -61,17 +67,17 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-# ********************************************************************
+  # ********************************************************************
   networking = {
     hostName = "nixos"; # Define your hostname.
-    
+
     nftables.enable = true;
     firewall = {
       enable = true;
       # allowedTCPPorts = [ 46725 ];
       # allowedUDPPorts = [ 46725 ];
     };
-   
+
   };
 
   systemd.network = {
@@ -94,7 +100,7 @@
         ];
       };
     };
-  netdevs."11-wg0" = {
+    netdevs."11-wg0" = {
       netdevConfig = {
         Kind = "wireguard";
         Name = "wg0";
@@ -119,7 +125,7 @@
     };
   };
 
-# ********************************************************************
+  # ********************************************************************
 
   #docker testing
   virtualisation.docker.enable = true;
@@ -167,6 +173,20 @@
     LC_TIME = "nb_NO.UTF-8";
   };
 
+  # Configure Tarsnap
+  services.tarsnap = {
+    enable = true;
+    keyfile = config.sops.secrets."tarsnap".path;
+
+    archives = {
+      test = {
+        directories = [ "/home/runek/vaultwarden" ];
+        period = "*-*-* 03:00:00";
+      };
+    };
+
+  };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "no";
@@ -200,7 +220,7 @@
   # nixpkgs.config.allowUnsupportedSystem = true;
   #
   programs.hyprlock.enable = true;
-    
+
   programs.river-classic.enable = true;
   programs.thunar.enable = true;
   programs._1password.enable = true;
@@ -427,7 +447,8 @@
     vscode-langservers-extracted
     blueman
     jaq
-    typstfmt # typst formatter for Helix
+    # typstfmt # typst formatter for Helix
+    typstyle
     swappy
     #helix
     scrcpy
@@ -438,8 +459,9 @@
     # wireguard-tools
     # kanskje fjerne firefox
     firefox
-    librewolf
-    mullvad-browser
+    brave
+    # librewolf
+    # mullvad-browser
     mako
     #fish
     #alacritty
@@ -476,6 +498,7 @@
     bitwarden-desktop
     dust
     xwayland-satellite
+    tarsnap
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
