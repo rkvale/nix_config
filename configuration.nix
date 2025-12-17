@@ -175,7 +175,7 @@
 
   # Configure Tarsnap
   services.tarsnap = {
-    enable = true;
+    enable = false;
     keyfile = config.sops.secrets."tarsnap".path;
 
     archives = {
