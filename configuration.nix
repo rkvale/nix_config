@@ -123,6 +123,30 @@
       matchConfig.Name = "wg0";
       networkConfig.Address = "10.0.0.3/32";
     };
+
+    netdevs."11-wg1" = {
+      netdevConfig = {
+        Kind = "wireguard";
+        Name = "wg1";
+      };
+      wireguardConfig = {
+        PrivateKeyFile = config.sops.secrets."wg1_key".path;
+        RouteTable = "main";
+      };
+      wireguardPeers = [
+        {
+          Endpoint = "wireguard.kvale.io:51825";
+          AllowedIPs = "10.0.16.0/24,192.168.1.0/24";
+          PublicKey = "4OnSziURDDOEmZbz/0h5JMPen8IBE6UlEPZPDGQ/PiA=";
+          PresharedKeyFile = config.sops.secrets."wg1_psk".path;
+          PersistentKeepalive = 30;
+        }
+      ];
+    };
+    networks."11-wg1" = {
+      matchConfig.Name = "wg1";
+      networkConfig.Address = "10.0.16.16/32";
+    };
   };
 
   # ********************************************************************
