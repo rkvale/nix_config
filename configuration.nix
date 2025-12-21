@@ -22,6 +22,18 @@
     mode = "0440";
   };
 
+  sops.secrets."wg1_key" = {
+    sopsFile = ./secrets.yml;
+    group = "systemd-network";
+    mode = "0440";
+  };
+
+  sops.secrets."wg1_psk" = {
+    sopsFile = ./secrets.yml;
+    group = "systemd-network";
+    mode = "0440";
+  };
+  
   sops.secrets."tarsnap" = {
     sopsFile = ./secrets.yml;
     # group = "systemd-network";
