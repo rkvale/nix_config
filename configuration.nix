@@ -117,29 +117,29 @@
         ];
       };
     };
-    netdevs."11-wg0" = {
-      netdevConfig = {
-        Kind = "wireguard";
-        Name = "wg0";
-      };
-      wireguardConfig = {
-        PrivateKeyFile = config.sops.secrets."wg0_key".path;
-        RouteTable = "main";
-      };
-      wireguardPeers = [
-        {
-          Endpoint = "wireguard.kvale.io:51820";
-          AllowedIPs = "10.0.0.0/24,192.168.1.0/24";
-          PublicKey = "rDnFQoUfoisyH+HvIHiiQjeIcGPbXO2ufgYQAhBfKH8=";
-          PresharedKeyFile = config.sops.secrets."wg0_psk".path;
-          PersistentKeepalive = 30;
-        }
-      ];
-    };
-    networks."11-wg0" = {
-      matchConfig.Name = "wg0";
-      networkConfig.Address = "10.0.0.3/32";
-    };
+    # netdevs."11-wg0" = {
+    #   netdevConfig = {
+    #     Kind = "wireguard";
+    #     Name = "wg0";
+    #   };
+    #   wireguardConfig = {
+    #     PrivateKeyFile = config.sops.secrets."wg0_key".path;
+    #     RouteTable = "main";
+    #   };
+    #   wireguardPeers = [
+    #     {
+    #       Endpoint = "wireguard.kvale.io:51820";
+    #       AllowedIPs = "10.0.0.0/24,192.168.1.0/24";
+    #       PublicKey = "rDnFQoUfoisyH+HvIHiiQjeIcGPbXO2ufgYQAhBfKH8=";
+    #       PresharedKeyFile = config.sops.secrets."wg0_psk".path;
+    #       PersistentKeepalive = 30;
+    #     }
+    #   ];
+    # };
+    # networks."11-wg0" = {
+    #   matchConfig.Name = "wg0";
+    #   networkConfig.Address = "10.0.0.3/32";
+    # };
 
     netdevs."11-wg1" = {
       netdevConfig = {
