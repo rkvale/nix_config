@@ -86,6 +86,7 @@
       "192.168.1.30" = ["fibaro.kvale.io"];
       "192.168.1.1" = ["router.kvale.io"];
       "192.168.1.20" = ["ha.kvale.io"];
+      "192.168.1.3" = ["newha.kvale.io"];
     };
 
     nftables.enable = true;
