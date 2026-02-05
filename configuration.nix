@@ -86,8 +86,10 @@
       "192.168.1.30" = ["fibaro.kvale.io"];
       "192.168.1.1" = ["router.kvale.io"];
       "192.168.1.20" = ["ha.kvale.io"];
+      "192.168.1.3" = ["newha.kvale.io"];
       # "192.168.1.3" = ["newha.kvale.io"];
-      "192.168.1.3" = ["test.kvale.io"];
+      # "192.168.1.3" = ["test.kvale.io"];
+      # "192.168.1.3" = ["doh.kvale.io"];
     };
 
     nftables.enable = true;
@@ -511,7 +513,7 @@
     #hyprland
     #wofi
     slack
-    simplex-chat-desktop
+    # simplex-chat-desktop
     session-desktop
     #zulu
     _1password-cli
@@ -568,12 +570,13 @@
   #    (nerd-fonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" "Iosevka"]; })
   # ];
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
+# Jeg bruker jo ikke Neovim lengre
+ # programs.neovim = {
+  #   enable = true;
+  #   defaultEditor = true;
+  #   viAlias = true;
+  #   vimAlias = true;
+  # };
 
   programs.niri = {
     enable = true;
