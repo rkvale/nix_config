@@ -3,7 +3,8 @@
   imports = [
     #./hyprland.nix
     ./programs/swww.nix
-    ./programs/neovim.nix
+    # som sagt bruker jeg jo ikke neovim lengre
+    # ./programs/neovim.nix
     ./programs/alacritty.nix
     ./programs/river.nix
     ./programs/niri.nix
