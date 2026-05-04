@@ -514,6 +514,7 @@
     #wofi
     slack
     # simplex-chat-desktop
+    webex
     session-desktop
     #zulu
     _1password-cli
