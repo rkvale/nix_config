@@ -525,7 +525,7 @@
     git
     jujutsu # istedenfor git - kanskje
     wl-mirror
-    chromium # add this again
+    # chromium # add this again
     graphviz
     pulsemixer
     ltunify # for å pair unifying receiver
