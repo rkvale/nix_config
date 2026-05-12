@@ -507,6 +507,7 @@
     brave
     # librewolf
     # mullvad-browser
+    ripgrep
     mako
     #fish
     #alacritty
