@@ -505,6 +505,8 @@
     # kanskje fjerne firefox
     firefox
     brave
+    foliate
+    mdbook
     # librewolf
     # mullvad-browser
     ripgrep

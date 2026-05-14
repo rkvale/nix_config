@@ -240,9 +240,9 @@
     slurp
     obsidian
     geeqie #image viewer
-    swappy
+    # swappy
     #hyprshot
-    openfortivpn
+    # openfortivpn
     dnsutils
     unzip
     zip
@@ -253,7 +253,7 @@
     # signal desktop
     signal-desktop
     reveal-md
-    element-desktop
+    # element-desktop
     # swaybg
     protonmail-desktop
     tofi
