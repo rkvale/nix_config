@@ -6,7 +6,7 @@
     # som sagt bruker jeg jo ikke neovim lengre
     # ./programs/neovim.nix
     ./programs/alacritty.nix
-    ./programs/river.nix
+    # ./programs/river.nix
     ./programs/niri.nix
     ./programs/kitty.nix
     ./programs/waybar02.nix
