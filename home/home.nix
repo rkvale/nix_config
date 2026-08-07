@@ -180,8 +180,8 @@
     font.name = "Iosevka Nerd Font";
     font.size = 11;
 
-    theme.name = "Flat-Remix-GTK-Grey-Darkest";
-    theme.package = pkgs.flat-remix-gtk;
+    # theme.name = "Flat-Remix-GTK-Grey-Darkest";
+    # theme.package = pkgs.flat-remix-gtk;
 
     iconTheme.name = "Adwaita";
     iconTheme.package = pkgs.adwaita-icon-theme;
