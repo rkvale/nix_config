@@ -518,7 +518,7 @@
     slack
     # simplex-chat-desktop
     webex
-    session-desktop
+    # session-desktop
     #zulu
     _1password-cli
     #libreoffice-qt
