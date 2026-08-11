@@ -493,6 +493,7 @@
     blueman
     jaq
     # typstfmt # typst formatter for Helix
+    appimage-run
     typstyle
     swappy
     #helix
