@@ -5,7 +5,9 @@
   ...
 }:
 {
-
+  programs = {
+    waybar.enable = true;
+  };
   xdg.portal = {
     # enable = true;
     # xdgOpenUsePortal = true;
