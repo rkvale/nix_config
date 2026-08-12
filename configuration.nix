@@ -164,7 +164,7 @@
           # Endpoint = "79.160.4.150:51825";
           Endpoint = "wireguard.kvale.io:51825";
           AllowedIPs = "10.0.16.0/24,192.168.1.0/24";
-          PublicKey = "uavYEz00KQOPIIPqLtjdGENkp+iYswXeMeG054VLwhY=;
+          PublicKey = "uavYEz00KQOPIIPqLtjdGENkp+iYswXeMeG054VLwhY=";
           PresharedKeyFile = config.sops.secrets."wg1_psk".path;
           PersistentKeepalive = 30;
         }
