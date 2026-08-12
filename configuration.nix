@@ -87,6 +87,7 @@
       "192.168.1.1" = ["router.kvale.io"];
       "192.168.1.20" = ["ha.kvale.io"];
       "192.168.1.3" = ["newha.kvale.io"];
+      "79.160.4.150" = ["wireguard.kvale.io"];
       # "192.168.1.3" = ["newha.kvale.io"];
       # "192.168.1.3" = ["test.kvale.io"];
       # "192.168.1.3" = ["doh.kvale.io"];
