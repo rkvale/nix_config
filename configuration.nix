@@ -161,7 +161,8 @@
       };
       wireguardPeers = [
         {
-          Endpoint = "wireguard.kvale.io:51825";
+          Endpoint = "79.160.4.150:51825";
+          # Endpoint = "wireguard.kvale.io:51825";
           AllowedIPs = "10.0.16.0/24,192.168.1.0/24";
           PublicKey = "4OnSziURDDOEmZbz/0h5JMPen8IBE6UlEPZPDGQ/PiA=";
           PresharedKeyFile = config.sops.secrets."wg1_psk".path;
@@ -172,9 +173,9 @@
     networks."11-wg1" = {
       matchConfig.Name = "wg1";
       networkConfig.Address = "10.0.16.16/32";
-      networkConfig = {
-        DNS = "1.1.1.1";
-      };
+      # networkConfig = {
+      #   DNS = "1.1.1.1";
+      # };
     };
   };
 
