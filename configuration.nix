@@ -172,6 +172,9 @@
     networks."11-wg1" = {
       matchConfig.Name = "wg1";
       networkConfig.Address = "10.0.16.16/32";
+      networkConfig = {
+        DNS = "1.1.1.1";
+      };
     };
   };
 
