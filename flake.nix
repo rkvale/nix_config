@@ -44,7 +44,7 @@
           home-manager.useUserPackages = true;
 	        home-manager.extraSpecialArgs = {inherit inputs;};
           home-manager.users.runek = import ./home/home.nix;
-          home-manager.backupFileExtension = "backup003"; 
+          home-manager.backupFileExtension = "backup004"; 
         }
     ];
    };
