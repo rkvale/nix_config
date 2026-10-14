@@ -266,6 +266,7 @@
     remmina
     pkgs.taskwarrior3
     wl-clipboard
+    drawio  # visio alternativ
     #pkgs.virt-manager
     #pkgs.citrix_workspace
     # pkgs.cups
