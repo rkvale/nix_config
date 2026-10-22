@@ -235,6 +235,7 @@
     hypridle
     #hyprpaper
     #flameshot
+    yubikey-manager
     wayfreeze
     grim
     slurp
