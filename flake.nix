@@ -5,7 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
+    claude-desktop.url = "github:poeck/claude-desktop-nix-flake";
+    
     # Sops
     sops-nix.url = "github:Mic92/sops-nix"; # secrets
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +21,7 @@
      };
   };
 
-  outputs = inputs @ {self, nixpkgs, home-manager, ...}:
+  outputs = inputs @ {self, nixpkgs, home-manager, claude-desktop, ...}:
   let
     inherit (inputs.nixpkgs) lib;
   in
@@ -39,6 +40,8 @@
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
+
+        claude-desktop.nixosModules.default
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

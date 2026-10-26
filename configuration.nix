@@ -267,6 +267,9 @@
     "flakes"
   ];
 
+  # add Claude desktop, this is added to flake
+  programs.claude-desktop.enable = true;
+  
   # Configure console keymap
   console.keyMap = "no";
 
@@ -396,10 +399,10 @@
   #hardware.opengl.enable = true;
   hardware.graphics.enable = true;
 
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-archive-plugin
-    thunar-volman
-  ];
+  # programs.thunar.plugins = with pkgs.xfce; [
+  #   thunar-archive-plugin
+  #   thunar-volman
+  # ];
 
   virtualisation.libvirtd.enable = true;
   programs.xfconf.enable = true;
@@ -498,6 +501,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    #add thunar plugins:
+    thunar-archive-plugin
+    thunar-volman
+    #
     vscode-langservers-extracted
     blueman
     jaq
