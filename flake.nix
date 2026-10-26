@@ -39,14 +39,15 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix
-        home-manager.nixosModules.home-manager
-
+        
         claude-desktop.nixosModules.default
+        home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 	        home-manager.extraSpecialArgs = {inherit inputs;};
           home-manager.users.runek = import ./home/home.nix;
+          home-manager.overwriteBackup = true;
           home-manager.backupFileExtension = "backup005"; 
         }
     ];
