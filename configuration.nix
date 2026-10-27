@@ -268,7 +268,7 @@
   ];
 
   # add Claude desktop, this is added to flake
-  programs.claude-desktop.enable = true;
+  # programs.claude-desktop.enable = true;
   
   # Configure console keymap
   console.keyMap = "no";
