@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    claude-desktop.url = "github:poeck/claude-desktop-nix-flake";
+    claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
     
     # Sops
     sops-nix.url = "github:Mic92/sops-nix"; # secrets
