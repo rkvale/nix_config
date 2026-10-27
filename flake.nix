@@ -5,8 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    # claude-desktop.url = "github:poeck/claude-desktop-nix-flake";
-    # claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
+    claude-desktop.url = "github:aaddrick/claude-desktop-debian";
+    claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
     
     # Sops
     sops-nix.url = "github:Mic92/sops-nix"; # secrets
@@ -22,8 +22,8 @@
      };
   };
 
-  outputs = inputs @ {self, nixpkgs, home-manager, ...}:
-  # outputs = inputs @ {self, nixpkgs, home-manager, claude-desktop, ...}:
+  # outputs = inputs @ {self, nixpkgs, home-manager, ...}:
+  outputs = inputs @ {self, nixpkgs, home-manager, claude-desktop, ...}:
   let
     inherit (inputs.nixpkgs) lib;
   in
@@ -41,13 +41,10 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix
-        # ({ pkgs, ... }: {
-        #   nixpkgs.config.allowUnfree = true;  # Claude Desktop is proprietary
-        #   environment.systemPackages = [
-        #     claude-desktop.packages.${pkgs.system}.default
-        #   ];
-        # })
-        # claude-desktop.nixosModules.default
+        ({ pkgs, ... }: {
+          nixpkgs.config.allowUnfree = true;  # Claude Desktop is proprietary
+          nixpkgs.overlays = [ claude-desktop.overlays.default ];
+          environment.systemPackages = [ pkgs.claude-desktop ];        })
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
