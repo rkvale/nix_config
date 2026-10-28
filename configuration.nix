@@ -267,26 +267,30 @@
     "flakes"
   ];
 
-  # add Claude desktop, this is added to flake
-  # programs.claude-desktop.enable = true;
-  
   # Configure console keymap
   console.keyMap = "no";
 
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+  builtins.elem (lib.getName pkg) [
+    "vscode"
+    "claude-code"
+    "castlabs-electron"
+    "obsidian"
+    "tarsnap"
+  ];
+ 
   # nixpkgs.config.allowUnsupportedSystem = true;
   #
   programs.hyprlock.enable = true;
 
   programs.river-classic.enable = true;
   programs.thunar.enable = true;
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    # Certain features, including CLI integration and system authentication support,
-    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
-    # polkitPolicyOwners = [ "yourUsernameHere" ];
-  };
+  # programs._1password.enable = true;
+  # programs._1password-gui = {
+  #   enable = true;
+  # };
 
   programs.foot = {
     enable = true;
@@ -504,8 +508,9 @@
     #add thunar plugins:
     thunar-archive-plugin
     thunar-volman
-    #
+    claude-code
     vscode-langservers-extracted
+    vscode
     blueman
     jaq
     # typstfmt # typst formatter for Helix
@@ -532,12 +537,12 @@
     #alacritty
     #hyprland
     #wofi
-    slack
+    # slack
     # simplex-chat-desktop
-    webex
+    # webex
     # session-desktop
     #zulu
-    _1password-cli
+    # _1password-cli
     #libreoffice-qt
     poppler-utils # pdf utils
     #waybar
