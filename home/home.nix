@@ -64,18 +64,29 @@
     ];
   };
 
-  programs.git.settings = {
-      user = {
-        name = "rkvale";
-        email = "rune@kvale.io";
-      };
+  programs.git = {
       enable = true;
-      # userName = "rkvale";
-      # userEmail = "rune@kvale.io";
-      extraConfig = {
-        pull.rebase = true;
-        url."ssh://git@github.com:managenordic/".insteadOf = "https://github.com/managenordic/";
+      settings = {
+        user = {
+          name = "rkvale";
+          email = "rune@kvale.io";
+        };
+        # userName = "rkvale";
+        # userEmail = "rune@kvale.io";
+        # extraConfig = {
+          pull.rebase = true;
+          url."ssh://git@github.com:managenordic/".insteadOf = "https://github.com/managenordic/";
+        # };
       };
+      includes = [
+        {
+          condition = "gitdir:~/Documents/2S/Kunder/SP/repo/";
+          contents.user = {
+            name = "spharune";
+            email = "harune@sykehuspartner.no";
+          };
+        }
+      ];
     };
 
   
