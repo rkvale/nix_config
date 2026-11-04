@@ -472,6 +472,9 @@
 
   programs.fish.enable = true;
 
+  #provide a shim linker so that generic linux binaries can run. fixes so that claude-code can run in vscode
+  programs.nix-ld.enable = true;
+
   programs.ssh = {
     ciphers = [
       "chacha20-poly1305@openssh.com"
