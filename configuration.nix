@@ -561,7 +561,7 @@
     #  wget
     gnupg
     sqlite-interactive
-    sqlpage
+    # sqlpage
     zoxide
     zellij
     csvlens
